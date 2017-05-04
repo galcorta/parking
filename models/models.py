@@ -3,6 +3,12 @@ from odoo import models, fields, api
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DF
 from datetime import date, datetime
 
+import geojson
+
+from odoo import api, fields
+from odoo.addons.base_geoengine import geo_model
+from odoo.addons.base_geoengine import fields as geo_fields
+
 
 class TicketMachine(models.Model):
     _name = 'ticket.machine'
@@ -173,7 +179,7 @@ class Street(models.Model):
     end_numeration = fields.Char('End numeration')
 
 
-class Parking(models.Model):
+class Parking(geo_model.GeoModel):
     _name = 'parking'
 
     parking_name = fields.Char('Parking name', unique=True)
@@ -201,7 +207,8 @@ class Parking(models.Model):
     today_tickets_count = fields.Integer('Today tickets', compute='_get_today_tickets_count')
     last_ticket_amount = fields.Float('Price', digits=(8, 2), compute='_get_last_ticket_amount')
     today_tickets_amount = fields.Float('Price', digits=(8, 2), compute='_get_today_tickets_amount')
-    # parking_tickets = fields.One2many('parking.ticket', 'parking')
+
+    coordinate = geo_fields.GeoPoint('Coordinate')
 
     @api.one
     def _get_status(self):
