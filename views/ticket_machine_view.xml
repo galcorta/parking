@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- parking_portal.ticket.machine -->
+        <!--<record id="view_parking_portal_parking_ticket_form" model="ir.ui.view">
+            <field name="name">parking.portal.parking.ticket.form</field>
+            <field name="model">parking.ticket</field>
+            <field name="arch" type="xml">
+                <form string="Parking ticket">
+                  <sheet>
+                    <group col="4">
+                        <field name="ticket_machine"/>
+                        <field name="ticket_type"/>
+                        <field name="start_time"/>
+                        <field name="end_time"/>
+                        <field name="parking"/>
+                        <field name="status"/>
+                    </group>
+                  </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_parking_portal_parking_ticket_tree" model="ir.ui.view">
+            <field name="name">parking.portal.parking.ticket.tree</field>
+            <field name="model">parking.ticket</field>
+            <field name="view_mode">tree,form</field>
+            <field name="arch" type="xml">
+                <tree string="Credit Entity">
+                    <field name="ticket_machine"/>
+                    <field name="ticket_type"/>
+                    <field name="start_time"/>
+                    <field name="end_time"/>
+                    <field name="parking"/>
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="parking_portal_parking_ticket_graph_pivot" model="ir.ui.view">
+            <field name="name">parking.ticket.pivot.graph</field>
+            <field name="model">parking.ticket</field>
+            <field name="arch" type="xml">
+                <graph type="pivot">
+                    <field name="ticket_machine" type="col" />
+                    <field name="status"   />
+                    <field name="start_time" interval="week" />
+                    <field name="parking" type="measure" />
+                </graph>
+            </field>
+        </record>-->
+
+        <!--<record id="parking_portal_parking_ticket_graph_bar" model="ir.ui.view">
+            <field name="name">parking.ticket.bar.graph</field>
+            <field name="model">parking.ticket</field>
+            <field name="arch" type="xml">
+                <graph string="By Country" type="bar">
+                    <field name="ticket_machine"/>
+                </graph>
+            </field>
+        </record>-->
+
+
+        <record id="action_parking_portal_ticket_machine_form" model="ir.actions.act_window">
+            <field name="name">Ticket machines</field>
+            <field name="res_model">ticket.machine</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--<menuitem action="action_parking_portal_ticket_machine_form"
+                  id="menu_action_parking_portal_ticket_machine_form"
+                  parent="menu_parking_portal_entities"
+                  sequence="4"
+                  groups="group_parking_admin"/>-->
+
+    </data>
+</odoo>

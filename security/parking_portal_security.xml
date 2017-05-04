@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<odoo>
+    <data noupdate="1">
+        <!--
+            Users Groups
+            Note that the field 'category_id' is set later in
+            microcredit_portal/data/parking_portal_data.xml
+        -->
+
+        <record id="group_parking_admin" model="res.groups">
+            <field name="name">Administrator</field>
+        </record>
+
+    </data>
+</odoo>

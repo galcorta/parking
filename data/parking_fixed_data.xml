@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Additional data type -->
+
+        <record id="parking_additional_data_type_key_user" model="ussd.additional.data.type">
+            <field name="name">KEY_USER</field>
+        </record>
+        <record id="parking_additional_data_type_key_buy_parking" model="ussd.additional.data.type">
+            <field name="name">KEY_BUY_PARKING</field>
+        </record>
+        <record id="parking_additional_data_type_key_list_buy_time" model="ussd.additional.data.type">
+            <field name="name">KEY_LIST_BUY_TIME</field>
+        </record>
+        <record id="parking_additional_data_type_key_list_available_parking" model="ussd.additional.data.type">
+            <field name="name">KEY_LIST_AVAILABLE_PARKING</field>
+        </record>
+        <record id="parking_additional_data_type_key_sale_parking" model="ussd.additional.data.type">
+            <field name="name">KEY_SALE_PARKING</field>
+        </record>
+        <record id="parking_additional_data_type_key_list_sale_time" model="ussd.additional.data.type">
+            <field name="name">KEY_LIST_SALE_TIME</field>
+        </record>
+        <record id="parking_additional_data_type_key_eft_sale_parking" model="ussd.additional.data.type">
+            <field name="name">KEY_EFT_SALE_PARKING</field>
+        </record>
+
+
+        <!-- Profile -->
+        <record id="parking_profile_parking_manager" model="profile">
+            <field name="name">Administrador de estacionamiento</field>
+            <field name="profile_alias">PARKING_MANAGER</field>
+            <field name="available" eval="True" />
+        </record>
+        <record id="parking_profile_parking_parking_user" model="profile">
+            <field name="name">Usuario</field>
+            <field name="profile_alias">PARKING_USER</field>
+            <field name="available" eval="True" />
+        </record>
+        <record id="parking_profile_parking_pos_user" model="profile">
+            <field name="name">Usuario</field>
+            <field name="profile_alias">PARKING_EFTPOS</field>
+            <field name="available" eval="True" />
+        </record>
+
+        <!-- Payment methods -->
+        <record id="parking_payment_method_cash" model="payment.method">
+            <field name="name">CASH</field>
+        </record>
+        <record id="parking_payment_method_wallet" model="payment.method">
+            <field name="name">WALLET</field>
+        </record>
+
+        <!-- Country -->
+        <record id="parking_country_paraguay" model="country">
+            <field name="create_uid">1</field>
+            <field name="create_date" eval="datetime.now()"/>
+            <field name="name">Paraguay</field>
+            <field name="write_uid">1</field>
+            <field name="write_date" eval="datetime.now()"/>
+        </record>
+
+        <!-- Department -->
+        <record id="parking_department_central" model="department">
+            <field name="create_uid">1</field>
+            <field name="create_date" eval="datetime.now()"/>
+            <field name="name">Central</field>
+            <field name="country" ref="parking_country_paraguay"/>
+            <field name="write_uid">1</field>
+            <field name="write_date" eval="datetime.now()"/>
+        </record>
+
+        <!-- City -->
+        <record id="parking_city_asuncion" model="city">
+            <field name="create_uid">1</field>
+            <field name="create_date" eval="datetime.now()"/>
+            <field name="name">Asuncion</field>
+            <field name="department" ref="parking_department_central"/>
+            <field name="write_uid">1</field>
+            <field name="write_date" eval="datetime.now()"/>
+        </record>
+
+        <!-- District -->
+        <record id="parking_district_san_jorge" model="district">
+            <field name="create_uid">1</field>
+            <field name="create_date" eval="datetime.now()"/>
+            <field name="name">San Jorge</field>
+            <field name="city" ref="parking_city_asuncion"/>
+            <field name="write_uid">1</field>
+            <field name="write_date" eval="datetime.now()"/>
+        </record>
+
+    </data>
+</odoo>

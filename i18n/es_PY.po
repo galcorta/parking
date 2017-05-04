@@ -1,0 +1,848 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* parking_portal
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-04-11 19:19+0000\n"
+"PO-Revision-Date: 2017-04-11 16:00-0400\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es_PY\n"
+"X-Generator: Poedit 2.0\n"
+
+#. module: parking_portal
+#: selection:ticket.machine,status:0
+msgid "ACTIVE"
+msgstr "ACTIVO"
+
+#. module: parking_portal
+#: field:access.token,access_token_alias:0
+msgid "Access token alias"
+msgstr "Alias de token de acceso"
+
+#. module: parking_portal
+#: field:parking,active:0 field:parking.ticket,active:0
+#: field:payment.method,active:0 field:person,active:0
+#: field:price.hour,active:0 field:price.schedule,active:0
+#: field:price.schedule.detail,active:0 field:profile,active:0
+#: field:sys.user,active:0 field:ticket.machine,active:0
+#: field:ussd.session,active:0 field:vehicle,active:0
+#: field:vehicle.customer,active:0 field:zone,active:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: parking_portal
+#: field:additional.data,additional_data_type:0
+msgid "Additional data type"
+msgstr "Tipo de dato adicional"
+
+#. module: parking_portal
+#: field:person,address:0
+msgid "Address"
+msgstr "Dirección"
+
+#. module: parking_portal
+#: model:res.groups,name:parking_portal.group_parking_admin
+msgid "Administrator"
+msgstr "Administrador"
+
+#. module: parking_portal
+#: field:profile,profile_alias:0
+msgid "Alias"
+msgstr "Alias"
+
+#. module: parking_portal
+#: field:parking.analysis,amount:0
+msgid "Amount"
+msgstr "Monto"
+
+#. module: parking_portal
+#: selection:parking.ticket,status:0
+msgid "Aproved"
+msgstr "Aprobado"
+
+#. module: parking_portal
+#: view:parking.analysis:parking_portal.view_report_parking_analysis_filter
+msgid "Auto Gestionado"
+msgstr "Auto Gestionado"
+
+#. module: parking_portal
+#: selection:parking.ticket,source:0
+msgid "Auto-Gestionado"
+msgstr "Auto-Gestionado"
+
+#. module: parking_portal
+#: field:additional.data,available:0 field:parking,available:0
+#: field:price.schedule,available:0 field:profile,available:0
+#: field:ussd.session,available:0 field:web.service.endpoint,available:0
+msgid "Available"
+msgstr "Disponible"
+
+#. module: parking_portal
+#: field:web.service.endpoint,base_path:0
+msgid "Base path"
+msgstr "Ruta de acceso base"
+
+#. module: parking_portal
+#: field:vehicle,brand:0
+msgid "Brand"
+msgstr "Marca"
+
+#. module: parking_portal
+#: field:district,city:0
+msgid "City"
+msgstr "Ciudad"
+
+#. module: parking_portal
+#: field:street,code:0 field:ticket.machine,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: parking_portal
+#: field:web.service.endpoint,connect_to:0
+msgid "Connect to"
+msgstr "Conectar a"
+
+#. module: parking_portal
+#: field:access.token,consumer_key:0
+msgid "Consumer key"
+msgstr "Clave del consumidor"
+
+#. module: parking_portal
+#: field:access.token,consumer_secret:0
+msgid "Consumer secret"
+msgstr "Secreto del consumidor"
+
+#. module: parking_portal
+#: field:department,country:0
+msgid "Country"
+msgstr "País"
+
+#. module: parking_portal
+#: field:parking.analysis,create_date:0
+msgid "Create date"
+msgstr "Fecha de creación"
+
+#. module: parking_portal
+#: field:access.token,create_uid:0 field:additional.data,create_uid:0
+#: field:additional.data.type,create_uid:0 field:city,create_uid:0
+#: field:country,create_uid:0 field:department,create_uid:0
+#: field:district,create_uid:0 field:parking,create_uid:0
+#: field:parking.ticket,create_uid:0 field:parking.ticket.released,create_uid:0
+#: field:payment.method,create_uid:0 field:person,create_uid:0
+#: field:price.hour,create_uid:0 field:price.schedule,create_uid:0
+#: field:price.schedule.detail,create_uid:0 field:profile,create_uid:0
+#: field:street,create_uid:0 field:sys.user,create_uid:0
+#: field:ticket.machine,create_uid:0 field:ussd.session,create_uid:0
+#: field:ussd.session.detail,create_uid:0 field:vehicle,create_uid:0
+#: field:vehicle.customer,create_uid:0 field:web.service.endpoint,create_uid:0
+#: field:zone,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: parking_portal
+#: field:access.token,create_date:0 field:additional.data,create_date:0
+#: field:additional.data.type,create_date:0 field:city,create_date:0
+#: field:country,create_date:0 field:department,create_date:0
+#: field:district,create_date:0 field:parking,create_date:0
+#: field:parking.ticket,create_date:0
+#: field:parking.ticket.released,create_date:0
+#: field:payment.method,create_date:0 field:person,create_date:0
+#: field:price.hour,create_date:0 field:price.schedule,create_date:0
+#: field:price.schedule.detail,create_date:0 field:profile,create_date:0
+#: field:street,create_date:0 field:sys.user,create_date:0
+#: field:ticket.machine,create_date:0 field:ussd.session,create_date:0
+#: field:ussd.session.detail,create_date:0 field:vehicle,create_date:0
+#: field:vehicle.customer,create_date:0
+#: field:web.service.endpoint,create_date:0 field:zone,create_date:0
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: parking_portal
+#: view:parking.analysis:parking_portal.view_report_parking_analysis_filter
+msgid "Created today"
+msgstr "Creado hoy"
+
+#. module: parking_portal
+#: view:parking.ticket:parking_portal.view_parking_portal_parking_ticket_tree
+msgid "Credit Entity"
+msgstr "Compañía crediticia"
+
+#. module: parking_portal
+#: view:parking.analysis:parking_portal.view_report_parking_analysis_filter
+msgid "Current Month"
+msgstr "Mes actual"
+
+#. module: parking_portal
+#: view:parking.analysis:parking_portal.view_report_parking_analysis_filter
+msgid "Current Week"
+msgstr "Semana actual"
+
+#. module: parking_portal
+#: field:ussd.session,current_position:0
+msgid "Current position"
+msgstr "Posición actual"
+
+#. module: parking_portal
+#: field:parking.ticket,parking_manager:0 field:vehicle.customer,customer:0
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: parking_portal
+#: sql_constraint:vehicle.customer:0
+msgid "Customer and vehicle must be unique!"
+msgstr "Cliente y vehículo debe ser único!"
+
+#. module: parking_portal
+#: field:additional.data,data_value:0
+msgid "Data value"
+msgstr "Data value"
+
+#. module: parking_portal
+#: field:parking.analysis,date_created:0
+msgid "Date Created"
+msgstr "Fecha de creación"
+
+#. module: parking_portal
+#: field:person,date_birth:0
+msgid "Date birth"
+msgstr "Fecha de nacimiento"
+
+#. module: parking_portal
+#: field:price.schedule.detail,day_of_the_week:0
+msgid "Day of the week"
+msgstr "Día de la semana"
+
+#. module: parking_portal
+#: field:city,department:0
+msgid "Department"
+msgstr "Departamento"
+
+#. module: parking_portal
+#: field:additional.data.type,description:0 field:parking,description:0
+#: field:parking.analysis,description:0 field:parking.ticket,description:0
+#: field:price.schedule,description:0 field:price.schedule.detail,description:0
+#: field:profile,description:0 field:ussd.session.detail,description:0
+#: field:vehicle,description:0 field:web.service.endpoint,description:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: parking_portal
+#: field:zone,district:0
+msgid "District"
+msgstr "Barrio"
+
+#. module: parking_portal
+#: field:person,document_number:0
+msgid "Document number"
+msgstr "Número de documento"
+
+#. module: parking_portal
+#: field:person,document_type:0
+msgid "Document type"
+msgstr "Tipo de documento"
+
+#. module: parking_portal
+#: field:sys.user,email:0
+msgid "Email"
+msgstr "Email"
+
+#. module: parking_portal
+#: field:person,email_principal:0
+msgid "Email principal"
+msgstr "Email principal"
+
+#. module: parking_portal
+#: field:person,email_secondary:0
+msgid "Email secondary"
+msgstr "Email secundario"
+
+#. module: parking_portal
+#: field:street,end_numeration:0
+msgid "End numeration"
+msgstr "Fin de numeración"
+
+#. module: parking_portal
+#: field:ussd.session,end_session:0
+msgid "End session"
+msgstr "Fin de sesión"
+
+#. module: parking_portal
+#: field:parking.analysis,end_time:0 field:parking.ticket,end_time:0
+#: field:price.schedule.detail,end_time:0
+msgid "End time"
+msgstr "Hora fin"
+
+#. module: parking_portal
+#: field:ussd.session.detail,event_type:0
+msgid "Event type"
+msgstr "Tipo de evento"
+
+#. module: parking_portal
+#: selection:price.schedule.detail,status:0
+msgid "FEE"
+msgstr "CUOTA"
+
+#. module: parking_portal
+#: selection:price.schedule.detail,status:0
+msgid "FREE"
+msgstr "LIBRE"
+
+#. module: parking_portal
+#: selection:price.schedule.detail,day_of_the_week:0
+msgid "FRIDAY"
+msgstr "VIERNES"
+
+#. module: parking_portal
+#: field:zone,floor_level:0
+msgid "Floor level"
+msgstr "Nivel de piso"
+
+#. module: parking_portal
+#: field:parking,free_at:0
+msgid "Free at"
+msgstr "Libre hasta"
+
+#. module: parking_portal
+#: view:parking.analysis:parking_portal.view_report_parking_analysis_filter
+#: selection:parking.ticket,source:0
+msgid "Gestionado por POS"
+msgstr "Gestionado por POS"
+
+#. module: parking_portal
+#: view:parking.analysis:parking_portal.view_report_parking_analysis_filter
+#: view:parking.ticket:parking_portal.parking_portal_parking_ticket_search_view
+msgid "Group By"
+msgstr "Agrupado por"
+
+#. module: parking_portal
+#: view:parking.ticket:parking_portal.parking_portal_parking_ticket_search_view
+msgid "Group Tickets by machine"
+msgstr "Agrupar tickets por dispositivo"
+
+#. module: parking_portal
+#: view:parking.ticket:parking_portal.parking_portal_parking_ticket_search_view
+msgid "Group Tickets by parking"
+msgstr "Agrupar tickets por estacionamiento"
+
+#. module: parking_portal
+#: view:parking.ticket:parking_portal.parking_portal_parking_ticket_search_view
+msgid "Group Tickets by status"
+msgstr "Agrupar tickets por estado"
+
+#. module: parking_portal
+#: view:parking.ticket:parking_portal.parking_portal_parking_ticket_search_view
+msgid "Group Tickets by type"
+msgstr "Agrupar tickets por tipo"
+
+#. module: parking_portal
+#: model:ir.module.category,description:parking_portal.module_category_parking_portal_management
+msgid "Helps you handle your parking sistem."
+msgstr "Le ayuda a administrar su sistema de estacionamiento."
+
+#. module: parking_portal
+#: field:access.token,id:0 field:additional.data,id:0
+#: field:additional.data.type,id:0 field:city,id:0 field:country,id:0
+#: field:department,id:0 field:district,id:0 field:parking,id:0
+#: field:parking.analysis,id:0 field:parking.ticket,id:0
+#: field:parking.ticket.released,id:0 field:payment.method,id:0
+#: field:person,id:0 field:price.hour,id:0 field:price.schedule,id:0
+#: field:price.schedule.detail,id:0 field:profile,id:0 field:street,id:0
+#: field:sys.user,id:0 field:ticket.machine,id:0 field:ussd.session,id:0
+#: field:ussd.session.detail,id:0 field:vehicle,id:0
+#: field:vehicle.customer,id:0 field:web.service.endpoint,id:0 field:zone,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: parking_portal
+#: selection:ticket.machine,status:0
+msgid "INACTIVE"
+msgstr "INACTIVO"
+
+#. module: parking_portal
+#: field:vehicle,image_url:0
+msgid "Image URL"
+msgstr "Image URL"
+
+#. module: parking_portal
+#: model:ir.ui.menu,name:parking_portal.menu_parking_portal_reports
+msgid "Informes"
+msgstr "Informes"
+
+#. module: parking_portal
+#: field:ussd.session.detail,input_data:0
+msgid "Input data"
+msgstr "Input data"
+
+#. module: parking_portal
+#: field:price.hour,label:0
+msgid "Label"
+msgstr "Label"
+
+#. module: parking_portal
+#: field:access.token,write_uid:0 field:additional.data,write_uid:0
+#: field:additional.data.type,write_uid:0 field:city,write_uid:0
+#: field:country,write_uid:0 field:department,write_uid:0
+#: field:district,write_uid:0 field:parking,write_uid:0
+#: field:parking.ticket,write_uid:0 field:parking.ticket.released,write_uid:0
+#: field:payment.method,write_uid:0 field:person,write_uid:0
+#: field:price.hour,write_uid:0 field:price.schedule,write_uid:0
+#: field:price.schedule.detail,write_uid:0 field:profile,write_uid:0
+#: field:street,write_uid:0 field:sys.user,write_uid:0
+#: field:ticket.machine,write_uid:0 field:ussd.session,write_uid:0
+#: field:ussd.session.detail,write_uid:0 field:vehicle,write_uid:0
+#: field:vehicle.customer,write_uid:0 field:web.service.endpoint,write_uid:0
+#: field:zone,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: parking_portal
+#: field:access.token,write_date:0 field:additional.data,write_date:0
+#: field:additional.data.type,write_date:0 field:city,write_date:0
+#: field:country,write_date:0 field:department,write_date:0
+#: field:district,write_date:0 field:parking,write_date:0
+#: field:parking.ticket,write_date:0 field:parking.ticket.released,write_date:0
+#: field:payment.method,write_date:0 field:person,write_date:0
+#: field:price.hour,write_date:0 field:price.schedule,write_date:0
+#: field:price.schedule.detail,write_date:0 field:profile,write_date:0
+#: field:street,write_date:0 field:sys.user,write_date:0
+#: field:ticket.machine,write_date:0 field:ussd.session,write_date:0
+#: field:ussd.session.detail,write_date:0 field:vehicle,write_date:0
+#: field:vehicle.customer,write_date:0 field:web.service.endpoint,write_date:0
+#: field:zone,write_date:0
+msgid "Last Updated on"
+msgstr "Ultima actualización en"
+
+#. module: parking_portal
+#: field:person,last_name:0
+msgid "Last name"
+msgstr "Apellido"
+
+#. module: parking_portal
+#: field:parking,latitude:0 field:ticket.machine,latitude:0
+msgid "Latitude"
+msgstr "Latitude"
+
+#. module: parking_portal
+#: field:parking,longitude:0 field:ticket.machine,longitude:0
+msgid "Longitude"
+msgstr "Longitude"
+
+#. module: parking_portal
+#: field:zone,lot:0
+msgid "Lot"
+msgstr "Lote"
+
+#. module: parking_portal
+#: selection:price.schedule.detail,day_of_the_week:0
+msgid "MONDAY"
+msgstr "LUNES"
+
+#. module: parking_portal
+#: field:sys.user,msisdn:0 field:ticket.machine,msisdn:0
+#: field:ussd.session,msisdn:0
+msgid "MSISDN"
+msgstr "MSISDN"
+
+#. module: parking_portal
+#: field:price.hour,minutes:0
+msgid "Minutes"
+msgstr "Minutos"
+
+#. module: parking_portal
+#: field:price.hour,minutes_convertion:0
+msgid "Minutes convertion"
+msgstr "Conversión de minutos"
+
+#. module: parking_portal
+#: field:vehicle,model:0
+msgid "Model"
+msgstr "Modelo"
+
+#. module: parking_portal
+#: view:parking.analysis:parking_portal.view_report_parking_analysis_filter
+msgid "Month"
+msgstr "Mes"
+
+#. module: parking_portal
+#: field:additional.data.type,name:0 field:city,name:0 field:country,name:0
+#: field:department,name:0 field:district,name:0 field:payment.method,name:0
+#: field:person,name:0 field:price.schedule,name:0
+#: field:price.schedule.detail,name:0 field:profile,name:0 field:street,name:0
+#: field:ticket.machine,name:0 field:zone,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: parking_portal
+#: field:parking,next_street:0
+msgid "Next street"
+msgstr "Calle siguiente"
+
+#. module: parking_portal
+#: field:web.service.endpoint,nickname:0
+msgid "Nickname"
+msgstr "Nickname"
+
+#. module: parking_portal
+#: field:sys.user,pin:0
+msgid "PIN"
+msgstr "PIN"
+
+#. module: parking_portal
+#: selection:parking,parking_type:0
+msgid "PREFERENCE"
+msgstr "PREFERENCE"
+
+#. module: parking_portal
+#: model:ir.actions.act_window,name:parking_portal.action_parking_portal_parking_ticket_tree
+#: model:ir.ui.menu,name:parking_portal.menu_action_parking_portal_parking_ticket_tree
+msgid "Panel"
+msgstr "Panel"
+
+#. module: parking_portal
+#: model:ir.module.category,name:parking_portal.module_category_parking_portal_management
+#: model:ir.ui.menu,name:parking_portal.menu_parking_portal_admin
+#: view:parking:parking_portal.view_parking_portal_parking_form
+#: view:parking.ticket:parking_portal.parking_portal_parking_ticket_search_view
+#: field:parking.ticket,parking:0
+msgid "Parking"
+msgstr "Parking"
+
+#. module: parking_portal
+#: model:ir.ui.menu,name:parking_portal.menu_report_parking_analysis_tree
+#: view:parking.analysis:parking_portal.view_report_parking_analysis_filter
+msgid "Parking Analysis"
+msgstr "Parking Analysis"
+
+#. module: parking_portal
+#: model:ir.actions.act_window,help:parking_portal.action_parking_analysis_graph
+msgid "Parking Analysis allows you to check different Tickets Parking related information like the amount or count of tickets per zone. You can sort out your parking analysis by different groups to get accurate grained analysis."
+msgstr "Parking Analysis allows you to check different Tickets Parking related information like the amount or count of tickets per zone. You can sort out your parking analysis by different groups to get accurate grained analysis."
+
+#. module: parking_portal
+#: model:ir.actions.act_window,name:parking_portal.action_parking_analysis_graph
+#: view:parking.analysis:parking_portal.view_parking_analysis_graph
+msgid "Parking analysis"
+msgstr "Parking analysis"
+
+#. module: parking_portal
+#: field:parking,parking_name:0 field:parking.analysis,parking_name:0
+msgid "Parking name"
+msgstr "Estacionamiento"
+
+#. module: parking_portal
+#: field:parking,parking_number:0
+msgid "Parking number"
+msgstr "Número de estacionamiento"
+
+#. module: parking_portal
+#: view:parking.ticket:parking_portal.view_parking_portal_parking_ticket_form
+#: field:parking.ticket.released,parking_ticket:0
+msgid "Parking ticket"
+msgstr "Ticket de estacionamiento"
+
+#. module: parking_portal
+#: model:ir.actions.act_window,name:parking_portal.action_parking_portal_parking_ticket_form
+#: model:ir.ui.menu,name:parking_portal.menu_action_parking_portal_parking_ticket_form
+msgid "Parking tickets"
+msgstr "Tickets de estacionamiento"
+
+#. module: parking_portal
+#: field:parking,parking_type:0 field:parking.analysis,parking_type:0
+msgid "Parking type"
+msgstr "Tipo de estacionamiento"
+
+#. module: parking_portal
+#: model:ir.actions.act_window,name:parking_portal.action_parking_portal_parking_form
+#: model:ir.actions.act_window,name:parking_portal.action_parking_portal_parking_tree
+#: model:ir.ui.menu,name:parking_portal.menu_action_parking_portal_parking_form
+#: view:parking:parking_portal.view_parking_portal_parking_tree
+msgid "Parkings"
+msgstr "Estacionamientos"
+
+#. module: parking_portal
+#: field:sys.user,password:0 field:web.service.endpoint,password:0
+msgid "Password"
+msgstr "Contraseña"
+
+#. module: parking_portal
+#: field:parking.ticket,payment_method:0
+msgid "Payment method"
+msgstr "Método de pago"
+
+#. module: parking_portal
+#: selection:parking.ticket,status:0
+msgid "Pending print"
+msgstr "Pendiente de impresión"
+
+#. module: parking_portal
+#: field:sys.user,person:0
+msgid "Person"
+msgstr "Persona"
+
+#. module: parking_portal
+#: field:person,photo:0
+msgid "Photo"
+msgstr "Foto"
+
+#. module: parking_portal
+#: field:vehicle,plate:0
+msgid "Plate"
+msgstr "Chapa"
+
+#. module: parking_portal
+#: field:parking,previous_street:0
+msgid "Previous street"
+msgstr "Calle anterior"
+
+#. module: parking_portal
+#: field:price.hour,price:0
+msgid "Price"
+msgstr "Precio"
+
+#. module: parking_portal
+#: field:price.schedule.detail,price_schedule:0 field:zone,price_schedule:0
+msgid "Price Schedule"
+msgstr "Price Schedule"
+
+#. module: parking_portal
+#: field:price.hour,price_schedule_detail:0
+msgid "Price Schedule Detail"
+msgstr "Price Schedule Detail"
+
+#. module: parking_portal
+#: field:parking.ticket,price_hour:0
+#: view:price.hour:parking_portal.view_parking_portal_price_hour_form
+#: view:price.hour:parking_portal.view_parking_portal_price_hour_tree
+msgid "Price hour"
+msgstr "Price hour"
+
+#. module: parking_portal
+#: model:ir.actions.act_window,name:parking_portal.action_parking_portal_price_schedule_form
+#: model:ir.ui.menu,name:parking_portal.menu_action_parking_portal_price_schedule_form
+#: view:price.schedule:parking_portal.view_parking_portal_price_schedule_form
+msgid "Price schedule"
+msgstr "Tarifa de estacionamiento"
+
+#. module: parking_portal
+#: model:ir.actions.act_window,name:parking_portal.action_parking_portal_price_schedule_detail_form
+#: model:ir.ui.menu,name:parking_portal.menu_action_parking_portal_price_schedule_detail_form
+#: view:price.schedule.detail:parking_portal.view_parking_portal_price_schedule_detail_form
+msgid "Price schedule detail"
+msgstr "Price schedule detail"
+
+#. module: parking_portal
+#: field:price.schedule,price_schedule_details:0
+msgid "Price schedule details"
+msgstr "Price schedule details"
+
+#. module: parking_portal
+#: field:sys.user,profile:0
+msgid "Profile"
+msgstr "Perfil"
+
+#. module: parking_portal
+#: field:web.service.endpoint,read_to:0
+msgid "Read to"
+msgstr "Read to"
+
+#. module: parking_portal
+#: field:zone,reference:0
+msgid "Reference"
+msgstr "Reference"
+
+#. module: parking_portal
+#: field:access.token,refresh_token:0
+msgid "Refresh token"
+msgstr "Refresh token"
+
+#. module: parking_portal
+#: selection:parking.ticket,status:0
+msgid "Rejected"
+msgstr "Rechazado"
+
+#. module: parking_portal
+#: selection:price.schedule.detail,day_of_the_week:0
+msgid "SATURDAY"
+msgstr "SABADO"
+
+#. module: parking_portal
+#: selection:parking,parking_type:0
+msgid "STANDARD"
+msgstr "STANDARD"
+
+#. module: parking_portal
+#: selection:price.schedule.detail,day_of_the_week:0
+msgid "SUNDAY"
+msgstr "DOMINGO"
+
+#. module: parking_portal
+#: view:parking.analysis:parking_portal.view_report_parking_analysis_filter
+msgid "Show only POS managed"
+msgstr "Mostrar solamente los realizados en POS"
+
+#. module: parking_portal
+#: view:parking.analysis:parking_portal.view_report_parking_analysis_filter
+msgid "Show only auto managed tickets"
+msgstr "Mostrar solamente los tickets auto-gestionados"
+
+#. module: parking_portal
+#: field:parking.analysis,source:0 field:parking.ticket,source:0
+msgid "Source"
+msgstr "Origen"
+
+#. module: parking_portal
+#: field:street,start_numeration:0
+msgid "Start numeration"
+msgstr "Numeración de inicio"
+
+#. module: parking_portal
+#: field:ussd.session,start_session:0
+msgid "Start session"
+msgstr "Inicio de sesión"
+
+#. module: parking_portal
+#: field:parking.analysis,start_time:0 field:parking.ticket,start_time:0
+#: field:price.schedule.detail,start_time:0
+msgid "Start time"
+msgstr "Hora inicio"
+
+#. module: parking_portal
+#: field:parking.analysis,status:0 field:parking.ticket,status:0
+#: field:price.schedule.detail,status:0 field:ticket.machine,status:0
+#: field:ussd.session.detail,status:0
+msgid "Status"
+msgstr "Estado"
+
+#. module: parking_portal
+#: field:parking,street:0
+msgid "Street"
+msgstr "Calle"
+
+#. module: parking_portal
+#: field:parking.ticket.released,sys_user:0
+msgid "Sys user"
+msgstr "Sys user"
+
+#. module: parking_portal
+#: selection:price.schedule.detail,day_of_the_week:0
+msgid "THURSDAY"
+msgstr "JUEVES"
+
+#. module: parking_portal
+#: selection:price.schedule.detail,day_of_the_week:0
+msgid "TUESDAY"
+msgstr "MARTES"
+
+#. module: parking_portal
+#: view:parking.ticket:parking_portal.parking_portal_parking_ticket_search_view
+msgid "Ticket Information"
+msgstr "Información del ticket"
+
+#. module: parking_portal
+#: view:parking.ticket:parking_portal.parking_portal_parking_ticket_search_view
+#: field:parking.ticket,ticket_machine:0
+msgid "Ticket machine"
+msgstr "Expendedora de ticket"
+
+#. module: parking_portal
+#: model:ir.actions.act_window,name:parking_portal.action_parking_portal_ticket_machine_form
+#: model:ir.ui.menu,name:parking_portal.menu_action_parking_portal_ticket_machine_form
+msgid "Ticket machines"
+msgstr "Expendedoras de ticket"
+
+#. module: parking_portal
+#: view:parking.ticket:parking_portal.parking_portal_parking_ticket_search_view
+msgid "Ticket status"
+msgstr "Estado de ticket"
+
+#. module: parking_portal
+#: field:parking.analysis,ticket_type:0
+#: view:parking.ticket:parking_portal.parking_portal_parking_ticket_search_view
+#: field:parking.ticket,ticket_type:0
+msgid "Ticket type"
+msgstr "Tipo de ticket"
+
+#. module: parking_portal
+#: model:ir.ui.menu,name:parking_portal.menu_parking_portal_entities
+msgid "Tickets"
+msgstr "Tickets"
+
+#. module: parking_portal
+#: view:parking.analysis:parking_portal.view_report_parking_analysis_filter
+msgid "Today"
+msgstr "Hoy"
+
+#. module: parking_portal
+#: field:access.token,token:0
+msgid "Token"
+msgstr "Token"
+
+#. module: parking_portal
+#: field:vehicle,type:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: parking_portal
+#: field:web.service.endpoint,url:0
+msgid "URL"
+msgstr "URL"
+
+#. module: parking_portal
+#: field:ussd.session,uuid_session:0
+msgid "UUID Session"
+msgstr "UUID Session"
+
+#. module: parking_portal
+#: field:sys.user,username:0
+msgid "User Name"
+msgstr "Nombre de usuario"
+
+#. module: parking_portal
+#: field:web.service.endpoint,user_name:0
+msgid "User name"
+msgstr "Nombre de usuario"
+
+#. module: parking_portal
+#: field:additional.data,ussd_session:0
+#: field:ussd.session.detail,ussd_session:0
+msgid "Ussd session"
+msgstr "Ussd session"
+
+#. module: parking_portal
+#: selection:parking,parking_type:0
+msgid "VIP"
+msgstr "VIP"
+
+#. module: parking_portal
+#: field:vehicle.customer,vehicle:0
+msgid "Vehicle"
+msgstr "Vehículo"
+
+#. module: parking_portal
+#: field:parking.ticket,vehicle_customer:0
+msgid "Vehicle Customer"
+msgstr "Vehículo del cliente"
+
+#. module: parking_portal
+#: selection:price.schedule.detail,day_of_the_week:0
+msgid "WEDNESDAY"
+msgstr "MIERCOLES"
+
+#. module: parking_portal
+#: field:parking,zone:0
+#: view:parking.analysis:parking_portal.view_report_parking_analysis_filter
+msgid "Zone"
+msgstr "Zona"
+
+#. module: parking_portal
+#: field:parking.analysis,zone_name:0
+msgid "Zone name"
+msgstr "Zona"

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_parking_portal_price_schedule_detail_form" model="ir.ui.view">
+            <field name="name">parking.portal.price.schedule.detail.form</field>
+            <field name="model">price.schedule.detail</field>
+            <field name="arch" type="xml">
+                <form string="Price schedule detail">
+                  <sheet>
+                      <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="description"/>
+                                <field name="day_of_the_week"/>
+                            </group>
+                            <group>
+                                <field name="start_time_float" widget="float_time"/>
+                                <field name="end_time_float" widget="float_time"/>
+                            </group>
+                      </group>
+                      <group>
+                          <field name="price_hour_ids" nolabel="1"
+                                 context="{'default_price_schedule_detail_id': active_id, 'footer_hide': False}"/>
+                      </group>
+                  </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_parking_portal_price_schedule_detail_tree" model="ir.ui.view">
+            <field name="name">parking.portal.price.schedule.detail.tree</field>
+            <field name="model">price.schedule.detail</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="day_of_the_week" />
+                    <field name="start_time_float" widget="float_time" />
+                    <field name="end_time_float" widget="float_time" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_parking_portal_price_schedule_detail_form" model="ir.actions.act_window">
+            <field name="name">Price schedule detail</field>
+            <field name="res_model">price.schedule.detail</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--<menuitem action="action_parking_portal_price_schedule_detail_form"
+                  id="menu_action_parking_portal_price_schedule_detail_form"
+                  parent="menu_parking_portal_entities"
+                  sequence="6"
+                  groups="group_parking_admin"/>-->
+    </data>
+</odoo>

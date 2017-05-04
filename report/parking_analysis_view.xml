@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+
+        <!-- Parking by zone and amount Graph View -->
+        <record id="view_parking_analysis_graph" model="ir.ui.view">
+            <field name="name">parking.analysis.graph</field>
+            <field name="model">parking.analysis</field>
+            <field name="arch" type="xml">
+                <graph string="Parking analysis" type="pie" stacked="True">
+                    <field name="date_created" interval="day" type="row"/>
+                    <field name="amount" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Custom reports (aka filters) -->
+        <!--<record id="filter_leads_long_term_revenue" model="ir.filters">
+            <field name="name">Long Term Revenue</field>
+            <field name="model_id">crm.lead.report</field>
+            <field name="user_id" eval="False"/>
+            <field name="context">{'group_by': ['country_id', 'section_id'], 'col_group_by': ['date_deadline'], 'measures': ['planned_revenue']}</field>
+        </record>
+        <record id="filter_leads_revenue_per_lead" model="ir.filters">
+            <field name="name">Revenue Per Lead</field>
+            <field name="model_id">crm.lead.report</field>
+            <field name="user_id" eval="False"/>
+            <field name="context">{'group_by': ['partner_id'], 'col_group_by': ['date_deadline:month'], 'measures': ['planned_revenue']}</field>
+        </record>
+        <record id="filter_leads_overpassed_deadline" model="ir.filters">
+            <field name="name">Overpassed Deadline</field>
+            <field name="model_id">crm.lead.report</field>
+            <field name="user_id" eval="False"/>
+            <field name="context">{'group_by': ['section_id'], 'col_group_by': ['partner_id'], 'measures': ['delay_expected']}</field>
+        </record>
+        <record id="filter_leads_salesperson" model="ir.filters">
+            <field name="name">By Salespersons</field>
+            <field name="model_id">crm.lead.report</field>
+            <field name="user_id" eval="False"/>
+            <field name="context">{'group_by': ['create_date:month', 'user_id']}</field>
+        </record>
+        <record id="filter_leads_country" model="ir.filters">
+            <field name="name">By Country</field>
+            <field name="model_id">crm.lead.report</field>
+            <field name="user_id" eval="False"/>
+            <field name="context">{'group_by': ['create_date:month', 'country_id']}</field>
+        </record>-->
+
+        <!-- Parking analysis Search View -->
+        <record id="view_report_parking_analysis_filter" model="ir.ui.view">
+            <field name="name">parking.analysis.select</field>
+            <field name="model">parking.analysis</field>
+            <field name="arch" type="xml">
+                <search string="Parking Analysis">
+                    <filter name="sm" string="Auto Gestionado" domain="[('source','=', 'SM')]" help="Show only auto managed tickets"/>
+                    <filter name="pm" string="Gestionado por POS" domain="[('source','=','PM')]" help="Show only POS managed"/>
+                    <separator/>
+                    <filter icon="terp-go-today" string="Today " separator="1"
+                            domain="[('create_date','&lt;=', (datetime.date.today()).strftime('%Y-%m-%d')),('create_date','&gt;=',
+                            (datetime.date.today()).strftime('%Y-%m-%d'))]" help="Created today"/>
+                    <filter icon="terp-go-week"
+                            string="Current Week"
+                            separator="1"
+                            name="week"
+                            domain="[('create_date','&lt;=', (context_today() +
+                            relativedelta(weeks=1,day=7, weekday=-1)).strftime('%Y-%m-%d')),
+                            ('create_date','&gt;=',(context_today() - relativedelta(weeks=0, day=7, weekday=0)).strftime('%Y-%m-%d'))]"
+                            help="Current Week"
+                            context="{'group_by':'create_date'}"/>
+                    <filter icon="terp-go-month" string="Month" name="month"
+                             domain="[('create_date','&lt;=',(datetime.date.today()+relativedelta(day=31)).strftime('%Y-%m-%d')),
+                             ('create_date','&gt;=',(datetime.date.today()-relativedelta(day=1)).strftime('%Y-%m-%d'))]" help="Current Month"/>
+
+                    <group expand="1" string="Group By">
+                        <filter string="Zone" context="{'group_by':'zone_name'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Parking by zone and amount Action -->
+       <record id="action_parking_analysis_graph" model="ir.actions.act_window">
+           <field name="name">Parking analysis</field>
+           <field name="res_model">parking.analysis</field>
+           <field name="view_type">form</field>
+           <field name="view_mode">graph</field>
+           <field name="context">{}</field>
+           <field name="domain">[]</field>
+           <field name="help">Parking Analysis allows you to check different Tickets Parking related information like the amount or count of tickets per zone. You can sort out your parking analysis by different groups to get accurate grained analysis.</field>
+       </record>
+       <record model="ir.actions.act_window.view" id="action_report_crm_lead_graph">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="view_parking_analysis_graph"/>
+            <field name="act_window_id" ref="action_parking_analysis_graph"/>
+       </record>
+       <menuitem name="Parking Analysis" id="menu_report_parking_analysis_tree"
+            groups="group_parking_admin"
+            parent="menu_parking_portal_reports" action="action_parking_analysis_graph" sequence="1"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Top menu item -->
+        <menuitem name="Parking"
+            id="menu_parking_portal_admin"
+            groups="group_parking_admin"
+            sequence="1"/>
+
+        <!-- Top menu item / Tickets -->
+        <menuitem id="menu_parking_portal_entities"
+                  parent="menu_parking_portal_admin"
+                  groups="group_parking_admin"
+                  name="Tickets"
+                  sequence="1" />
+
+        <!-- Top menu item / Informes -->
+        <menuitem id="menu_parking_portal_reports"
+                  parent="menu_parking_portal_admin"
+                  name="Informes"
+                  sequence="2" />
+
+        <!-- Top menu item / Configuracion -->
+        <menuitem id="menu_parking_portal_configuration"
+                  parent="menu_parking_portal_admin"
+                  name="Configuration"
+                  sequence="3" />
+
+        <!-- parking_portal.parking -->
+        <record id="view_parking_portal_parking_form" model="ir.ui.view">
+            <field name="name">parking.portal.parking.form</field>
+            <field name="model">parking</field>
+            <field name="arch" type="xml">
+                <form string="Parking">
+                  <sheet>
+                    <group col="4">
+                        <field name="parking_name"/>
+                        <field name="zone"/>
+                        <field name="status" string="Estado"/>
+                        <field name="last_ticket_start_time" string="Hora inicio"/>
+                        <field name="last_ticket_end_time" string="Hora fin"/>
+                        <field name="today_tickets_count" string="Cant. Hoy"/>
+                        <field name="last_ticket_amount" string="Monto de último ticket"/>
+                        <field name="today_tickets_amount" string="Monto total del día"/>
+                    </group>
+                  </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_parking_portal_parking_tree" model="ir.ui.view">
+            <field name="name">parking.portal.parking.tree</field>
+            <field name="model">parking</field>
+            <field name="view_mode">tree,form</field>
+            <field name="arch" type="xml">
+                <tree string="Parkings">
+                    <field name="parking_name"/>
+                    <field name="zone"/>
+                    <field name="status" string="Estado"/>
+                    <field name="last_ticket_start_time" string="Hora inicio"/>
+                    <field name="last_ticket_end_time" string="Hora fin"/>
+                    <field name="today_tickets_count" string="Cant. Hoy"/>
+                    <field name="last_ticket_amount" string="Monto de último ticket"/>
+                    <field name="today_tickets_amount" string="Monto total del día"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_parking_portal_parking_form" model="ir.actions.act_window">
+            <field name="name">Parkings</field>
+            <field name="res_model">parking</field>
+            <field name="view_type">form</field>
+            <field name="limit">15</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Search View for Parking ticket -->
+		<record id="parking_portal_parking_search_view" model="ir.ui.view">
+			<field name="name">parking.search</field>
+			<field name="model">parking</field>
+			<field name="arch" type="xml">
+				<search string="Parking">
+                    <field name="parking_name"/>
+                    <filter help="Libre"
+                           domain="['|',('free_at','=','COLLECTOR'),('profile_id.code','=','DEALER_COLLECTOR')]"/>
+					<group expand="0" string="Group By">
+						<filter name="groupby_ticket_machine" string="Ticket machine" domain="[]" context="{'group_by':'ticket_machine'}"
+							help="Group Tickets by machine"/>
+						<filter name="groupby_ticket_type" context="{'group_by': 'ticket_type'}" string="Ticket type"
+							help="Group Tickets by type" />
+						<filter name="groupby_status" context="{'group_by': 'status'}" string="Ticket status"
+                            help="Group Tickets by status" />
+                        <filter name="groupby_parking" context="{'group_by': 'parking'}" string="Parking"
+                            help="Group Tickets by parking" />
+					</group>
+<!--					<filter name="fil_by_disability" string="Physically Disabled" domain="[('is_physically_disabled','=','True')]"
+						help="Show all Physically Disabled Students" />
+					<filter string="Registered Current Year" name="fil_by_current_year" domain="[('registration_date','&lt;=',
+						time.strftime('%%Y-12-31')),('registration_date','&gt;=',time.strftime('%%Y-01-01'))]"
+						help="Filter Students Registered in Current Year"/>-->
+				</search>
+			</field>
+		</record>
+
+        <record id="action_parking_portal_parking_tree" model="ir.actions.act_window">
+            <field name="name">Parkings</field>
+            <field name="res_model">parking</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem action="action_parking_portal_parking_form"
+                  id="menu_action_parking_portal_parking_form"
+                  parent="menu_parking_portal_entities"
+                  sequence="7"
+                  groups="group_parking_admin"/>
+
+    </data>
+</odoo>

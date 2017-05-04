@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_parking_all,parking all,model_parking,,1,0,0,0
+access_parking_ticket_all,parking_ticket all,model_parking_ticket,,1,0,0,0
+access_ticket_machine_all,ticket_machine all,model_ticket_machine,,1,0,0,0
+access_parking_analysis_all,parking_analysis all,model_parking_analysis,,1,0,0,0
+access_price_hour_all,price_hour all,model_price_hour,,1,0,0,0
+access_zone_all,zone all,model_zone,,1,0,0,0
+access_street_all,street all,model_street,,1,0,0,0
