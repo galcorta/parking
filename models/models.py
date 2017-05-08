@@ -111,7 +111,7 @@ class PriceHour(models.Model):
     #name = fields.Char(compute='_compute_name', string='Name')
     price_schedule_detail = fields.Many2one('price.schedule.detail',
                                             string="Price Schedule Detail", ondelete='restrict')
-    minutes_convertion = fields.Char('Minutes convertion', compute='_compute_minutes', required=True)
+    minutes_convertion = fields.Char('Minutes convertion', compute='_compute_minutes', required=True, store=True)
     label = fields.Char('Label', required=True, default='Hs')
     minutes = fields.Selection([
         (30, 'Media hora'),
@@ -182,7 +182,11 @@ class Street(models.Model):
 class Parking(geo_model.GeoModel):
     _name = 'parking'
 
-    parking_name = fields.Char('Parking name', unique=True)
+    @api.depends('street', 'parking_number')
+    def _get_parking_name(self):
+        self.parking_name = self.street.code + str(self.parking_number).zfill(3)
+
+    parking_name = fields.Char('Parking name', store=True, compute='_get_parking_name')
     parking_number = fields.Integer('Parking number', unique=True, required=True)
     parking_type = fields.Selection([
         ('STANDARD', 'STANDARD'),
@@ -193,14 +197,13 @@ class Parking(geo_model.GeoModel):
     street = fields.Many2one('street', string="Street", ondelete='restrict', required=True)
     next_street = fields.Many2one('street', string="Next street", ondelete='restrict', required=True)
     previous_street = fields.Many2one('street', string="Previous street", ondelete='restrict', required=True)
-    latitude = fields.Float('Latitude', digits=(14, 11), required=True)
-    longitude = fields.Float('Longitude', digits=(14, 11), required=True)
+    latitude = fields.Float('Latitude', digits=(14, 11))
+    longitude = fields.Float('Longitude', digits=(14, 11))
     free_at = fields.Datetime('Free at')
     description = fields.Char('Description')
-    available = fields.Boolean('Available', default=True, required=True)
+    # available = fields.Boolean('Available', default=True, required=True)
     active = fields.Boolean('Active', required=True, default=True)
     name = fields.Char(string='Parking', related='parking_name')
-
     status = fields.Char('Status', compute='_get_status')
     last_ticket_start_time = fields.Char('Start time', compute='_get_last_ticket_start_time')
     last_ticket_end_time = fields.Char('End time', compute='_get_last_ticket_end_time')
@@ -256,6 +259,10 @@ class Parking(geo_model.GeoModel):
             .search([('parking', '=', self.id), ('create_date', '>=', today)])
         for ticket in today_tickets:
             self.today_tickets_amount += ticket.price_hour.price
+
+    _sql_constraints = [
+        ('number_parking_uniq', 'unique(street, parking_number)', 'The number of the parking must be unique per street!'),
+    ]
 
 
 class Profile(models.Model):

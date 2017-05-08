@@ -32,18 +32,36 @@
             <field name="model">parking</field>
             <field name="arch" type="xml">
                 <form string="Parking">
-                  <sheet>
-                    <group col="4">
-                        <field name="parking_name"/>
-                        <field name="zone"/>
-                        <field name="status" string="Estado"/>
-                        <field name="last_ticket_start_time" string="Hora inicio"/>
-                        <field name="last_ticket_end_time" string="Hora fin"/>
-                        <field name="today_tickets_count" string="Cant. Hoy"/>
-                        <field name="last_ticket_amount" string="Monto de último ticket"/>
-                        <field name="today_tickets_amount" string="Monto total del día"/>
-                    </group>
-                  </sheet>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                                <field name="active" widget="boolean_button" options='{"terminology": "active"}'/>
+                            </button>
+                        </div>
+                        <group>
+                            <field name="parking_name"/>
+                            <field name="zone"/>
+                            <field name="street"/>
+                            <field name="parking_number"/>
+                            <field name="next_street"/>
+                            <field name="previous_street"/>
+                        </group>
+                        <notebook>
+                            <page string="Information">
+                                <group col="4">
+                                    <field name="status" string="Estado"/>
+                                    <field name="today_tickets_count" string="Cant. Hoy"/>
+                                    <field name="last_ticket_start_time" string="Hora inicio"/>
+                                    <field name="today_tickets_amount" string="Monto total del día"/>
+                                    <field name="last_ticket_end_time" string="Hora fin"/>
+                                    <field name="last_ticket_amount" string="Monto de último ticket"/>
+                                </group>
+                            </page>
+                            <page string="Location">
+                                <field name="coordinate" widget="geo_edit_map"/>
+                            </page>
+                        </notebook>
+                    </sheet>
                 </form>
             </field>
         </record>
@@ -71,7 +89,7 @@
             <field name="res_model">parking</field>
             <field name="view_type">form</field>
             <field name="limit">15</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,geoengine</field>
         </record>
 
         <!-- Search View for Parking ticket -->
@@ -106,7 +124,7 @@
             <field name="name">Parkings</field>
             <field name="res_model">parking</field>
             <field name="view_type">tree</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,geoengine</field>
         </record>
 
         <menuitem action="action_parking_portal_parking_form"
@@ -115,5 +133,40 @@
                   sequence="7"
                   groups="group_parking_admin"/>
 
+        <!-- GeoEngine views -->
+        <record id="ir_ui_view_parkingview0" model="ir.ui.view">
+          <field name="name">Parking view</field>
+          <field name="arch" type="xml">
+            <geoengine>
+                <field name="parking_name"/>
+                <field name="zone"/>
+                <field name="status" string="Estado"/>
+            </geoengine>
+          </field>
+          <field eval="16" name="priority"/>
+          <field name="model">parking</field>
+        </record>
+        <record id="geoengine_vector_layer_parkingbasicpoint0" model="geoengine.vector.layer">
+          <field name="geo_field_id" ref="parking_portal.field_parking_coordinate"/>
+          <field name="name">Parking Basic point</field>
+          <field eval="6" name="sequence"/>
+          <field name="view_id" ref="ir_ui_view_parkingview0"/>
+          <field name="geo_repr">basic</field>
+          <field eval="1" name="nb_class"/>
+          <field name="begin_color">#FF680A</field>
+        </record>
+        <record id="geoengine_raster_layer_parkingosm" model="geoengine.raster.layer">
+          <field name="raster_type">osm</field>
+          <field name="name">Parking Open Street Map</field>
+          <field name="view_id" ref="ir_ui_view_parkingview0"/>
+          <field eval="0" name="overlay"/>
+        </record>
+        <record id="geoengine_raster_layer_parking_basic0" model="geoengine.raster.layer">
+          <field name="raster_type">d_wms</field>
+          <field name="name">basic</field>
+          <field name="url">vmap0.tiles.osgeo.org/wms/vmap0</field>
+          <field name="view_id" ref="ir_ui_view_parkingview0"/>
+          <field eval="1" name="overlay"/>
+        </record>
     </data>
 </odoo>
