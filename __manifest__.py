@@ -24,6 +24,8 @@
     # always loaded
     'data': [
         'security/parking_portal_security.xml',
+        'security/ir.model.access.csv',
+        'views/resources.xml',
         'data/parking_module_data.xml',
         'data/parking_fixed_data.xml',
         'views/parking_view.xml',
@@ -35,7 +37,6 @@
         'views/zone_view.xml',
         'views/street_view.xml',
         'report/parking_analysis_view.xml',
-        'security/ir.model.access.csv',
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -552,7 +552,7 @@ msgstr "Ticket de estacionamiento"
 #: model:ir.actions.act_window,name:parking_portal.action_parking_portal_parking_ticket_form
 #: model:ir.ui.menu,name:parking_portal.menu_action_parking_portal_parking_ticket_form
 msgid "Parking tickets"
-msgstr "Tickets de estacionamiento"
+msgstr "Tickets"
 
 #. module: parking_portal
 #: field:parking,parking_type:0 field:parking.analysis,parking_type:0

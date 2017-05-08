@@ -69,17 +69,32 @@
         <record id="view_parking_portal_parking_tree" model="ir.ui.view">
             <field name="name">parking.portal.parking.tree</field>
             <field name="model">parking</field>
+            <field name="priority" eval="15"/>
             <field name="view_mode">tree,form</field>
             <field name="arch" type="xml">
                 <tree string="Parkings">
-                    <field name="parking_name"/>
                     <field name="zone"/>
+                    <field name="parking_name"/>
+                    <field name="status" string="Estado"/>
+                    <field name="street"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_parking_portal_parking_tree1" model="ir.ui.view">
+            <field name="name">parking.portal.parking.tree1</field>
+            <field name="model">parking</field>
+            <field name="view_mode">tree,form</field>
+            <field name="arch" type="xml">
+                <tree string="Parkings" create="false" delete="false" class="parking_portal_view_parking_portal_parking_tree">
+                    <field name="zone"/>
+                    <field name="parking_name"/>
                     <field name="status" string="Estado"/>
                     <field name="last_ticket_start_time" string="Hora inicio"/>
                     <field name="last_ticket_end_time" string="Hora fin"/>
-                    <field name="today_tickets_count" string="Cant. Hoy"/>
                     <field name="last_ticket_amount" string="Monto de último ticket"/>
-                    <field name="today_tickets_amount" string="Monto total del día"/>
+                    <field name="today_tickets_count" string="Cant. total del día"/>
+                    <field name="today_tickets_amount" string="Monto total del día" sum="Total"/>
                 </tree>
             </field>
         </record>
@@ -88,11 +103,25 @@
             <field name="name">Parkings</field>
             <field name="res_model">parking</field>
             <field name="view_type">form</field>
-            <field name="limit">15</field>
-            <field name="view_mode">tree,form,geoengine</field>
+            <field name="view_mode">tree,form</field>
         </record>
 
-        <!-- Search View for Parking ticket -->
+        <record id="action_parking_portal_parking_form1" model="ir.actions.act_window">
+            <field name="name">Parkings</field>
+            <field name="res_model">parking</field>
+            <field name="view_type">form</field>
+            <field name="limit">15</field>
+            <field name="view_mode">tree,form,geoengine</field>
+            <field name="view_id" ref="view_parking_portal_parking_tree1"/>
+        </record>
+
+        <!--<record id="action_parking_portal_parking_tree" model="ir.actions.act_window">
+            <field name="name">Parkings</field>
+            <field name="res_model">parking</field>
+            <field name="view_type">tree</field>
+        </record>-->
+
+        <!-- Search View for Parking -->
 		<record id="parking_portal_parking_search_view" model="ir.ui.view">
 			<field name="name">parking.search</field>
 			<field name="model">parking</field>
@@ -120,17 +149,17 @@
 			</field>
 		</record>
 
-        <record id="action_parking_portal_parking_tree" model="ir.actions.act_window">
-            <field name="name">Parkings</field>
-            <field name="res_model">parking</field>
-            <field name="view_type">tree</field>
-            <field name="view_mode">tree,form,geoengine</field>
-        </record>
+
+        <menuitem action="action_parking_portal_parking_form1"
+                  id="menu_action_parking_portal_parking_form1"
+                  parent="menu_parking_portal_entities"
+                  sequence="7"
+                  groups="group_parking_admin"/>
 
         <menuitem action="action_parking_portal_parking_form"
                   id="menu_action_parking_portal_parking_form"
-                  parent="menu_parking_portal_entities"
-                  sequence="7"
+                  parent="menu_parking_portal_configuration"
+                  sequence="3"
                   groups="group_parking_admin"/>
 
         <!-- GeoEngine views -->

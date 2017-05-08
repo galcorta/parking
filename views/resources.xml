@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+	<!-- Adds all assets in Odoo -->
+        <template id="assets_backend" name="static_resources_parking_portal assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <!-- All links to CSS and JS files should be added in here. -->
+                <link rel="stylesheet" href="/parking_portal/static/src/css/parking_portal.css"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

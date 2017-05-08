@@ -2,9 +2,6 @@
 <odoo>
     <data>
 
-
-
-
         <!-- parking_portal.parking.ticket -->
         <record id="view_parking_portal_parking_ticket_form" model="ir.ui.view">
             <field name="name">parking.portal.parking.ticket.form</field>

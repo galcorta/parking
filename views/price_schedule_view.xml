@@ -44,7 +44,7 @@
         <menuitem action="action_parking_portal_price_schedule_form"
                   id="menu_action_parking_portal_price_schedule_form"
                   parent="menu_parking_portal_configuration"
-                  sequence="1"
+                  sequence="4"
                   groups="group_parking_admin"/>
     </data>
 </odoo>
