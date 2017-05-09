@@ -11,7 +11,7 @@ from odoo.addons.base_geoengine import fields as geo_fields
 
 
 class TicketMachine(models.Model):
-    _name = 'ticket.machine'
+    _name = 'parking.ticket.machine'
 
     name = fields.Char('Name')
     code = fields.Char('Code', required=True)
@@ -26,17 +26,17 @@ class TicketMachine(models.Model):
 
 
 class PriceSchedule(models.Model):
-    _name = 'price.schedule'
+    _name = 'parking.price.schedule'
 
     name = fields.Char('Name', required=True)
     description = fields.Char('Description')
     active = fields.Boolean('Active', required=True, default=True)
     available = fields.Boolean('Available', required=True, default=True)
-    price_schedule_details = fields.One2many('price.schedule.detail', 'price_schedule')
+    price_schedule_details = fields.One2many('parking.price.schedule.detail', 'price_schedule')
 
 
 class PriceScheduleDetail(models.Model):
-    _name = 'price.schedule.detail'
+    _name = 'parking.price.schedule.detail'
 
     def _inverse_start(self):
         for rec in self:
@@ -56,7 +56,7 @@ class PriceScheduleDetail(models.Model):
                 (st_str, rec.end_time_float, rec.id))
             rec.invalidate_cache()
 
-    price_schedule = fields.Many2one('price.schedule', string="Price Schedule", ondelete='restrict')
+    price_schedule = fields.Many2one('parking.price.schedule', string="Price Schedule", ondelete='restrict')
     name = fields.Char('Name', required=True)
     start_time = fields.Datetime('Start time')
     start_time_float = fields.Float('Start time', inverse='_inverse_start', invisible=True, store=True, required=True)
@@ -77,11 +77,11 @@ class PriceScheduleDetail(models.Model):
     ], 'Status', required=True, default='FEE')
     description = fields.Char('Description')
     active = fields.Boolean('Active', required=True, default=True)
-    price_hour_ids = fields.One2many('price.hour', 'price_schedule_detail')
+    price_hour_ids = fields.One2many('parking.price.hour', 'price_schedule_detail')
 
 
 class PriceHour(models.Model):
-    _name = 'price.hour'
+    _name = 'parking.price.hour'
     _order = 'minutes'
 
     _dict_hour = {'30': 'Media',
@@ -109,7 +109,7 @@ class PriceHour(models.Model):
             record.minutes_convertion = record._dict_hour[str(record.minutes)]
 
     #name = fields.Char(compute='_compute_name', string='Name')
-    price_schedule_detail = fields.Many2one('price.schedule.detail',
+    price_schedule_detail = fields.Many2one('parking.price.schedule.detail',
                                             string="Price Schedule Detail", ondelete='restrict')
     minutes_convertion = fields.Char('Minutes convertion', compute='_compute_minutes', required=True, store=True)
     label = fields.Char('Label', required=True, default='Hs')
@@ -131,39 +131,39 @@ class PriceHour(models.Model):
     active = fields.Boolean('Active', required=True, default=True)
 
 
-class Country(models.Model):
-    _name = 'country'
-
-    name = fields.Char('Name', required=True)
-
-
-class Department(models.Model):
-    _name = 'department'
-
-    name = fields.Char('Name', required=True)
-    country = fields.Many2one('country', string="Country", ondelete='restrict', required=True)
-
-
-class City(models.Model):
-    _name = 'city'
-
-    name = fields.Char('Name', required=True)
-    department = fields.Many2one('department', string="Department", ondelete='restrict', required=True)
-
-
-class District(models.Model):
-    _name = 'district'
-
-    name = fields.Char('Name', required=True)
-    city = fields.Many2one('city', string="City", ondelete='restrict')
+# class Country(models.Model):
+#     _name = 'country'
+#
+#     name = fields.Char('Name', required=True)
+#
+#
+# class Department(models.Model):
+#     _name = 'department'
+#
+#     name = fields.Char('Name', required=True)
+#     country = fields.Many2one('country', string="Country", ondelete='restrict', required=True)
+#
+#
+# class City(models.Model):
+#     _name = 'city'
+#
+#     name = fields.Char('Name', required=True)
+#     department = fields.Many2one('department', string="Department", ondelete='restrict', required=True)
+#
+#
+# class District(models.Model):
+#     _name = 'district'
+#
+#     name = fields.Char('Name', required=True)
+#     city = fields.Many2one('city', string="City", ondelete='restrict')
 
 
 class Zone(models.Model):
-    _name = 'zone'
+    _name = 'parking.zone'
 
     name = fields.Char('Name', required=True)
-    district = fields.Many2one('district', string="District", ondelete='restrict', required=True)
-    price_schedule = fields.Many2one('price.schedule', string="Price Schedule", ondelete='restrict')
+    city_id = fields.Many2one('district', string="District", ondelete='restrict', required=True)
+    price_schedule = fields.Many2one('parking.price.schedule', string="Price Schedule", ondelete='restrict')
     lot = fields.Char('Lot')
     floor_level = fields.Char('Floor level')
     reference = fields.Char('Reference')
@@ -171,7 +171,7 @@ class Zone(models.Model):
 
 
 class Street(models.Model):
-    _name = 'street'
+    _name = 'parking.street'
 
     code = fields.Char('Code', unique=True, required=True)
     name = fields.Char('Name', required=True)
@@ -180,7 +180,7 @@ class Street(models.Model):
 
 
 class Parking(geo_model.GeoModel):
-    _name = 'parking'
+    _name = 'parking.parking'
 
     @api.depends('street', 'parking_number')
     def _get_parking_name(self):
@@ -193,10 +193,10 @@ class Parking(geo_model.GeoModel):
         ('PREFERENCE', 'PREFERENCE'),
         ('VIP', 'VIP'),
     ], 'Parking type', required=True, default='STANDARD')
-    zone = fields.Many2one('zone', string="Zone", ondelete='restrict', required=True)
-    street = fields.Many2one('street', string="Street", ondelete='restrict', required=True)
-    next_street = fields.Many2one('street', string="Next street", ondelete='restrict', required=True)
-    previous_street = fields.Many2one('street', string="Previous street", ondelete='restrict', required=True)
+    zone = fields.Many2one('parking.zone', string="Zone", ondelete='restrict', required=True)
+    street = fields.Many2one('parking.street', string="Street", ondelete='restrict', required=True)
+    next_street = fields.Many2one('parking.street', string="Next street", ondelete='restrict', required=True)
+    previous_street = fields.Many2one('parking.street', string="Previous street", ondelete='restrict', required=True)
     latitude = fields.Float('Latitude', digits=(14, 11))
     longitude = fields.Float('Longitude', digits=(14, 11))
     free_at = fields.Datetime('Free at')
@@ -265,46 +265,46 @@ class Parking(geo_model.GeoModel):
     ]
 
 
-class Profile(models.Model):
-    _name = 'profile'
-
-    name = fields.Char('Name', unique=True, required=True)
-    profile_alias = fields.Char('Alias', unique=True)
-    description = fields.Char('Description')
-    available = fields.Boolean('Available', default=True, required=True)
-    active = fields.Boolean('Active', required=True, default=True)
-
-
-class Person(models.Model):
-    _name = "person"
-
-    name = fields.Char('Name', required=True)
-    last_name = fields.Char('Last name', required=True)
-    date_birth = fields.Date('Date birth')
-    document_number = fields.Char('Document number', required=True)
-    document_type = fields.Char('Document type', required=True)
-    address = fields.Char('Address')
-    email_principal = fields.Char('Email principal')
-    email_secondary = fields.Char('Email secondary')
-    photo = fields.Char('Photo')
-    active = fields.Boolean('Active', required=True, default=True)
+# class Profile(models.Model):
+#     _name = 'profile'
+#
+#     name = fields.Char('Name', unique=True, required=True)
+#     profile_alias = fields.Char('Alias', unique=True)
+#     description = fields.Char('Description')
+#     available = fields.Boolean('Available', default=True, required=True)
+#     active = fields.Boolean('Active', required=True, default=True)
 
 
-class SysUser(models.Model):
-    _name = 'sys.user'
+# class Person(models.Model):
+#     _name = "person"
+#
+#     name = fields.Char('Name', required=True)
+#     last_name = fields.Char('Last name', required=True)
+#     date_birth = fields.Date('Date birth')
+#     document_number = fields.Char('Document number', required=True)
+#     document_type = fields.Char('Document type', required=True)
+#     address = fields.Char('Address')
+#     email_principal = fields.Char('Email principal')
+#     email_secondary = fields.Char('Email secondary')
+#     photo = fields.Char('Photo')
+#     active = fields.Boolean('Active', required=True, default=True)
 
-    person = fields.Many2one('person', string="Person", ondelete='restrict')
-    profile = fields.Many2one('profile', string="Profile", ondelete='restrict', required=True)
-    username = fields.Char('User Name', unique=True, required=True)
-    email = fields.Char('Email')
-    msisdn = fields.Char('MSISDN', required=True)
-    pin = fields.Char('PIN', required=True)
-    password = fields.Char('Password', required=True)
-    active = fields.Boolean('Active', required=True, default=True)
+
+# class SysUser(models.Model):
+#     _name = 'sys.user'
+#
+#     person = fields.Many2one('person', string="Person", ondelete='restrict')
+#     profile = fields.Many2one('profile', string="Profile", ondelete='restrict', required=True)
+#     username = fields.Char('User Name', unique=True, required=True)
+#     email = fields.Char('Email')
+#     msisdn = fields.Char('MSISDN', required=True)
+#     pin = fields.Char('PIN', required=True)
+#     password = fields.Char('Password', required=True)
+#     active = fields.Boolean('Active', required=True, default=True)
 
 
 class PaymentMethod(models.Model):
-    _name = 'payment.method'
+    _name = 'parking.payment.method'
 
     name = fields.Char('Name', unique=True, required=True)
     active = fields.Boolean('Active', required=True, default=True)
@@ -337,9 +337,9 @@ class VehicleCustomer(models.Model):
 class ParkingTicket(models.Model):
     _name = 'parking.ticket'
 
-    ticket_machine = fields.Many2one('ticket.machine', string="Ticket machine", ondelete='restrict', required=True)
-    price_hour = fields.Many2one('price.hour', string="Price hour", ondelete='restrict', required=True)
-    parking = fields.Many2one('parking', string="Parking", ondelete='restrict', required=True)
+    ticket_machine = fields.Many2one('parking.ticket.machine', string="Ticket machine", ondelete='restrict', required=True)
+    price_hour = fields.Many2one('parking.price.hour', string="Price hour", ondelete='restrict', required=True)
+    parking = fields.Many2one('parking.parking', string="Parking", ondelete='restrict', required=True)
     parking_manager = fields.Many2one('sys.user', string="Customer", ondelete='restrict')
     payment_method = fields.Many2one('payment.method', string="Payment method", ondelete='restrict')
     vehicle_customer = fields.Many2one('vehicle.customer', string="Vehicle Customer", ondelete='restrict')

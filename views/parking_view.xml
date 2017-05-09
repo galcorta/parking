@@ -5,6 +5,7 @@
         <menuitem name="Parking"
             id="menu_parking_portal_admin"
             groups="group_parking_admin"
+            web_icon="parking_portal,static/description/web_icon.png"
             sequence="1"/>
 
         <!-- Top menu item / Tickets -->
