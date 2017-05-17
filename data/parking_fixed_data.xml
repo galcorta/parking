@@ -27,7 +27,7 @@
         </record>
 
 
-        <!-- Profile -->
+        <!--&lt;!&ndash; Profile &ndash;&gt;
         <record id="parking_profile_parking_manager" model="profile">
             <field name="name">Administrador de estacionamiento</field>
             <field name="profile_alias">PARKING_MANAGER</field>
@@ -42,17 +42,17 @@
             <field name="name">Usuario</field>
             <field name="profile_alias">PARKING_EFTPOS</field>
             <field name="available" eval="True" />
-        </record>
+        </record>-->
 
         <!-- Payment methods -->
-        <record id="parking_payment_method_cash" model="payment.method">
+        <record id="parking_payment_method_cash" model="parking.payment.method">
             <field name="name">CASH</field>
         </record>
-        <record id="parking_payment_method_wallet" model="payment.method">
+        <record id="parking_payment_method_wallet" model="parking.payment.method">
             <field name="name">WALLET</field>
         </record>
 
-        <!-- Country -->
+        <!--&lt;!&ndash; Country &ndash;&gt;
         <record id="parking_country_paraguay" model="country">
             <field name="create_uid">1</field>
             <field name="create_date" eval="datetime.now()"/>
@@ -61,7 +61,7 @@
             <field name="write_date" eval="datetime.now()"/>
         </record>
 
-        <!-- Department -->
+        &lt;!&ndash; Department &ndash;&gt;
         <record id="parking_department_central" model="department">
             <field name="create_uid">1</field>
             <field name="create_date" eval="datetime.now()"/>
@@ -71,7 +71,7 @@
             <field name="write_date" eval="datetime.now()"/>
         </record>
 
-        <!-- City -->
+        &lt;!&ndash; City &ndash;&gt;
         <record id="parking_city_asuncion" model="city">
             <field name="create_uid">1</field>
             <field name="create_date" eval="datetime.now()"/>
@@ -81,7 +81,7 @@
             <field name="write_date" eval="datetime.now()"/>
         </record>
 
-        <!-- District -->
+        &lt;!&ndash; District &ndash;&gt;
         <record id="parking_district_san_jorge" model="district">
             <field name="create_uid">1</field>
             <field name="create_date" eval="datetime.now()"/>
@@ -89,7 +89,7 @@
             <field name="city" ref="parking_city_asuncion"/>
             <field name="write_uid">1</field>
             <field name="write_date" eval="datetime.now()"/>
-        </record>
+        </record>-->
 
     </data>
 </odoo>

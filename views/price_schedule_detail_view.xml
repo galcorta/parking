@@ -3,8 +3,8 @@
     <data>
 
         <record id="view_parking_portal_price_schedule_detail_form" model="ir.ui.view">
-            <field name="name">parking.portal.price.schedule.detail.form</field>
-            <field name="model">price.schedule.detail</field>
+            <field name="name">parking.portal.parking.price.schedule.detail.form</field>
+            <field name="model">parking.price.schedule.detail</field>
             <field name="arch" type="xml">
                 <form string="Price schedule detail">
                   <sheet>
@@ -30,7 +30,7 @@
 
         <record id="view_parking_portal_price_schedule_detail_tree" model="ir.ui.view">
             <field name="name">parking.portal.price.schedule.detail.tree</field>
-            <field name="model">price.schedule.detail</field>
+            <field name="model">parking.price.schedule.detail</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="name" />
@@ -43,7 +43,7 @@
 
         <record id="action_parking_portal_price_schedule_detail_form" model="ir.actions.act_window">
             <field name="name">Price schedule detail</field>
-            <field name="res_model">price.schedule.detail</field>
+            <field name="res_model">parking.price.schedule.detail</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>

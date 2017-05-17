@@ -10,14 +10,14 @@
                 <form string="Parking ticket">
                   <sheet>
                     <group col="4">
-                        <field name="ticket_machine"/>
+                        <field name="ticket_machine_id"/>
                         <field name="ticket_type"/>
-                        <field name="price_hour"/>
-                        <field name="payment_method"/>
+                        <field name="price_hour_id"/>
+                        <field name="payment_method_id"/>
                         <field name="start_time"/>
                         <field name="end_time"/>
                         <field name="source"/>
-                        <field name="parking"/>
+                        <field name="parking_id"/>
                         <field name="status"/>
                     </group>
                   </sheet>
@@ -31,11 +31,11 @@
             <field name="view_mode">tree,form</field>
             <field name="arch" type="xml">
                 <tree string="Credit Entity">
-                    <field name="ticket_machine"/>
+                    <field name="ticket_machine_id"/>
                     <field name="ticket_type"/>
                     <field name="start_time"/>
                     <field name="end_time"/>
-                    <field name="parking"/>
+                    <field name="parking_id"/>
                     <field name="status"/>
                 </tree>
             </field>
@@ -46,10 +46,10 @@
             <field name="model">parking.ticket</field>
             <field name="arch" type="xml">
                 <graph type="pivot">
-                    <field name="ticket_machine" type="col" />
+                    <field name="ticket_machine_id" type="col"/>
                     <field name="status"   />
-                    <field name="start_time" interval="week" />
-                    <field name="parking" type="measure" />
+                    <field name="start_time" interval="week"/>
+                    <field name="parking_id" type="measure" />
                 </graph>
             </field>
         </record>
@@ -64,13 +64,11 @@
             </field>
         </record>-->
 
-
         <record id="action_parking_portal_parking_ticket_form" model="ir.actions.act_window">
             <field name="name">Parking tickets</field>
             <field name="res_model">parking.ticket</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form,graph</field>
-            <field name="auto_refresh" eval="10"/>
         </record>
 
         <record id="action_parking_portal_parking_ticket_tree" model="ir.actions.act_window">
@@ -78,7 +76,6 @@
             <field name="res_model">parking.ticket</field>
             <field name="view_type">tree</field>
             <field name="view_mode">tree,form</field>
-            <field name="auto_refresh" eval="10"/>
         </record>
 
         <menuitem action="action_parking_portal_parking_ticket_form"
@@ -99,26 +96,21 @@
 			<field name="model">parking.ticket</field>
 			<field name="arch" type="xml">
 				<search string="Ticket Information">
-                    <field name="ticket_machine"/>
+                    <field name="ticket_machine_id"/>
                     <field name="ticket_type"/>
                     <field name="start_time"/>
                     <field name="end_time"/>
                     <field name="status"/>
 					<group expand="0" string="Group By">
-						<filter name="groupby_ticket_machine" string="Ticket machine" domain="[]" context="{'group_by':'ticket_machine'}"
+						<filter name="groupby_ticket_machine" string="Ticket machine" domain="[]" context="{'group_by':'ticket_machine_id'}"
 							help="Group Tickets by machine"/>
 						<filter name="groupby_ticket_type" context="{'group_by': 'ticket_type'}" string="Ticket type"
 							help="Group Tickets by type" />
 						<filter name="groupby_status" context="{'group_by': 'status'}" string="Ticket status"
                             help="Group Tickets by status" />
-                        <filter name="groupby_parking" context="{'group_by': 'parking'}" string="Parking"
+                        <filter name="groupby_parking" context="{'group_by': 'parking_id'}" string="Parking"
                             help="Group Tickets by parking" />
 					</group>
-<!--					<filter name="fil_by_disability" string="Physically Disabled" domain="[('is_physically_disabled','=','True')]"
-						help="Show all Physically Disabled Students" />
-					<filter string="Registered Current Year" name="fil_by_current_year" domain="[('registration_date','&lt;=',
-						time.strftime('%%Y-12-31')),('registration_date','&gt;=',time.strftime('%%Y-01-01'))]"
-						help="Filter Students Registered in Current Year"/>-->
 				</search>
 			</field>
 		</record>

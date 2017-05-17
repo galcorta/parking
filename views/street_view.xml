@@ -4,8 +4,8 @@
 
         <!-- parking_portal.street -->
         <record id="view_parking_portal_street_form" model="ir.ui.view">
-            <field name="name">parking.portal.street.form</field>
-            <field name="model">street</field>
+            <field name="name">parking.portal.parking.street.form</field>
+            <field name="model">parking.street</field>
             <field name="arch" type="xml">
                 <form string="Street">
                     <sheet>
@@ -21,8 +21,8 @@
         </record>
 
         <record id="view_parking_portal_street_tree" model="ir.ui.view">
-            <field name="name">parking.portal.street.tree</field>
-            <field name="model">street</field>
+            <field name="name">parking.portal.parking.street.tree</field>
+            <field name="model">parking.street</field>
             <field name="view_mode">tree,form</field>
             <field name="arch" type="xml">
                 <tree string="Street">
@@ -36,7 +36,7 @@
 
         <record id="action_parking_portal_street_form" model="ir.actions.act_window">
             <field name="name">Streets</field>
-            <field name="res_model">street</field>
+            <field name="res_model">parking.street</field>
             <field name="view_type">form</field>
             <field name="limit">15</field>
             <field name="view_mode">tree,form</field>
@@ -45,7 +45,7 @@
         <!-- Search View for streets -->
 		<record id="parking_portal_street_search_view" model="ir.ui.view">
 			<field name="name">street.search</field>
-			<field name="model">street</field>
+			<field name="model">parking.street</field>
 			<field name="arch" type="xml">
 				<search string="Street">
                     <field name="code"/>
@@ -63,7 +63,7 @@
         <!-- GeoEngine views -->
         <!--<record id="ir_ui_view_streetview0" model="ir.ui.view">
             <field name="name">Street view</field>
-            <field name="model">street</field>
+            <field name="model">parking.street</field>
             <field eval="16" name="priority"/>
               <field name="arch" type="xml">
                 <geoengine>

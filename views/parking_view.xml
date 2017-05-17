@@ -30,7 +30,7 @@
         <!-- parking_portal.parking -->
         <record id="view_parking_portal_parking_form" model="ir.ui.view">
             <field name="name">parking.portal.parking.form</field>
-            <field name="model">parking</field>
+            <field name="model">parking.parking</field>
             <field name="arch" type="xml">
                 <form string="Parking">
                     <sheet>
@@ -40,22 +40,22 @@
                             </button>
                         </div>
                         <group>
-                            <field name="parking_name"/>
-                            <field name="zone"/>
-                            <field name="street"/>
+                            <field name="name"/>
+                            <field name="zone_id"/>
+                            <field name="street_id"/>
                             <field name="parking_number"/>
-                            <field name="next_street"/>
-                            <field name="previous_street"/>
+                            <field name="next_street_id"/>
+                            <field name="previous_street_id"/>
                         </group>
                         <notebook>
                             <page string="Information">
                                 <group col="4">
-                                    <field name="status" string="Estado"/>
-                                    <field name="today_tickets_count" string="Cant. Hoy"/>
-                                    <field name="last_ticket_start_time" string="Hora inicio"/>
-                                    <field name="today_tickets_amount" string="Monto total del día"/>
-                                    <field name="last_ticket_end_time" string="Hora fin"/>
-                                    <field name="last_ticket_amount" string="Monto de último ticket"/>
+                                    <field name="status"/>
+                                    <field name="today_tickets_count"/>
+                                    <field name="last_ticket_start_time"/>
+                                    <field name="today_tickets_amount"/>
+                                    <field name="last_ticket_end_time"/>
+                                    <field name="last_ticket_amount"/>
                                 </group>
                             </page>
                             <page string="Location">
@@ -69,83 +69,60 @@
 
         <record id="view_parking_portal_parking_tree" model="ir.ui.view">
             <field name="name">parking.portal.parking.tree</field>
-            <field name="model">parking</field>
+            <field name="model">parking.parking</field>
             <field name="priority" eval="15"/>
             <field name="view_mode">tree,form</field>
             <field name="arch" type="xml">
-                <tree string="Parkings">
-                    <field name="zone"/>
-                    <field name="parking_name"/>
-                    <field name="status" string="Estado"/>
-                    <field name="street"/>
+                <tree string="Parkings" class="parking_portal_view_parking_portal_parking_tree">
+                    <field name="zone_id"/>
+                    <field name="name"/>
+                    <field name="status"/>
+                    <field name="street_id"/>
                 </tree>
             </field>
         </record>
 
         <record id="view_parking_portal_parking_tree1" model="ir.ui.view">
             <field name="name">parking.portal.parking.tree1</field>
-            <field name="model">parking</field>
+            <field name="model">parking.parking</field>
             <field name="view_mode">tree,form</field>
             <field name="arch" type="xml">
                 <tree string="Parkings" create="false" delete="false" class="parking_portal_view_parking_portal_parking_tree">
-                    <field name="zone"/>
-                    <field name="parking_name"/>
-                    <field name="status" string="Estado"/>
-                    <field name="last_ticket_start_time" string="Hora inicio"/>
-                    <field name="last_ticket_end_time" string="Hora fin"/>
-                    <field name="last_ticket_amount" string="Monto de último ticket"/>
-                    <field name="today_tickets_count" string="Cant. total del día"/>
-                    <field name="today_tickets_amount" string="Monto total del día" sum="Total"/>
+                    <field name="zone_id"/>
+                    <field name="name"/>
+                    <field name="status"/>
+                    <field name="last_ticket_start_time"/>
+                    <field name="last_ticket_end_time"/>
+                    <field name="last_ticket_amount"/>
+                    <field name="today_tickets_count"/>
+                    <field name="today_tickets_amount" sum="Total"/>
                 </tree>
             </field>
         </record>
 
         <record id="action_parking_portal_parking_form" model="ir.actions.act_window">
             <field name="name">Parkings</field>
-            <field name="res_model">parking</field>
+            <field name="res_model">parking.parking</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>
 
         <record id="action_parking_portal_parking_form1" model="ir.actions.act_window">
-            <field name="name">Parkings</field>
-            <field name="res_model">parking</field>
+            <field name="name">Parkings Status</field>
+            <field name="res_model">parking.parking</field>
             <field name="view_type">form</field>
             <field name="limit">15</field>
             <field name="view_mode">tree,form,geoengine</field>
             <field name="view_id" ref="view_parking_portal_parking_tree1"/>
         </record>
 
-        <!--<record id="action_parking_portal_parking_tree" model="ir.actions.act_window">
-            <field name="name">Parkings</field>
-            <field name="res_model">parking</field>
-            <field name="view_type">tree</field>
-        </record>-->
-
         <!-- Search View for Parking -->
 		<record id="parking_portal_parking_search_view" model="ir.ui.view">
 			<field name="name">parking.search</field>
-			<field name="model">parking</field>
+			<field name="model">parking.parking</field>
 			<field name="arch" type="xml">
 				<search string="Parking">
-                    <field name="parking_name"/>
-                    <filter help="Libre"
-                           domain="['|',('free_at','=','COLLECTOR'),('profile_id.code','=','DEALER_COLLECTOR')]"/>
-					<group expand="0" string="Group By">
-						<filter name="groupby_ticket_machine" string="Ticket machine" domain="[]" context="{'group_by':'ticket_machine'}"
-							help="Group Tickets by machine"/>
-						<filter name="groupby_ticket_type" context="{'group_by': 'ticket_type'}" string="Ticket type"
-							help="Group Tickets by type" />
-						<filter name="groupby_status" context="{'group_by': 'status'}" string="Ticket status"
-                            help="Group Tickets by status" />
-                        <filter name="groupby_parking" context="{'group_by': 'parking'}" string="Parking"
-                            help="Group Tickets by parking" />
-					</group>
-<!--					<filter name="fil_by_disability" string="Physically Disabled" domain="[('is_physically_disabled','=','True')]"
-						help="Show all Physically Disabled Students" />
-					<filter string="Registered Current Year" name="fil_by_current_year" domain="[('registration_date','&lt;=',
-						time.strftime('%%Y-12-31')),('registration_date','&gt;=',time.strftime('%%Y-01-01'))]"
-						help="Filter Students Registered in Current Year"/>-->
+                    <field name="name"/>
 				</search>
 			</field>
 		</record>
@@ -168,16 +145,16 @@
           <field name="name">Parking view</field>
           <field name="arch" type="xml">
             <geoengine>
-                <field name="parking_name"/>
-                <field name="zone"/>
-                <field name="status" string="Estado"/>
+                <field name="name"/>
+                <field name="zone_id"/>
+                <field name="status"/>
             </geoengine>
           </field>
           <field eval="16" name="priority"/>
-          <field name="model">parking</field>
+          <field name="model">parking.parking</field>
         </record>
         <record id="geoengine_vector_layer_parkingbasicpoint0" model="geoengine.vector.layer">
-          <field name="geo_field_id" ref="parking_portal.field_parking_coordinate"/>
+          <field name="geo_field_id" ref="parking_portal.field_parking_parking_coordinate"/>
           <field name="name">Parking Basic point</field>
           <field eval="6" name="sequence"/>
           <field name="view_id" ref="ir_ui_view_parkingview0"/>

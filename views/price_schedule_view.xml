@@ -3,18 +3,17 @@
     <data>
 
         <record id="view_parking_portal_price_schedule_form" model="ir.ui.view">
-            <field name="name">parking.portal.price.schedule.form</field>
-            <field name="model">price.schedule</field>
+            <field name="name">parking.portal.parking.price.schedule.form</field>
+            <field name="model">parking.price.schedule</field>
             <field name="arch" type="xml">
                 <form string="Price schedule">
                   <sheet>
                     <group col="4">
                         <field name="name"/>
                         <field name="description"/>
-                        <field name="available"/>
                     </group>
                       <group>
-                          <field name="price_schedule_details" nolabel="1"
+                          <field name="price_schedule_detail_ids" nolabel="1"
                                  context="{'default_price_schedule_id': active_id, 'footer_hide': False}"/>
                       </group>
                   </sheet>
@@ -23,20 +22,19 @@
         </record>
 
         <record id="view_parking_portal_price_schedule_tree" model="ir.ui.view">
-            <field name="name">parking.portal.price.schedule.tree</field>
-            <field name="model">price.schedule</field>
+            <field name="name">parking.portal.parking.price.schedule.tree</field>
+            <field name="model">parking.price.schedule</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
                     <field name="description"/>
-                    <field name="available"/>
                 </tree>
             </field>
         </record>
 
         <record id="action_parking_portal_price_schedule_form" model="ir.actions.act_window">
             <field name="name">Price schedule</field>
-            <field name="res_model">price.schedule</field>
+            <field name="res_model">parking.price.schedule</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>
