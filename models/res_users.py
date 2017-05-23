@@ -55,10 +55,7 @@ class ResUsers(models.Model):
     msisdn = fields.Char('Mobile phone')
     pin = fields.Char(compute='_compute_pin', inverse='_inverse_pin', invisible=True, store=True)
     pin_crypt = fields.Char(string='Encrypted PIN', invisible=True, copy=False)
-    device_type = fields.Selection([
-        ('POS_MACHINE', 'POS MACHINE'),
-        ('MOBILE_PHONE', 'MOBILE PHONE'),
-    ], 'Device type', default='POS_MACHINE')
+    user_device_ids = fields.Many2many('parking.user.device')
 
     # @api.onchange('company_id')
     # def on_change_company_id(self):
@@ -111,4 +108,5 @@ class GroupsView(models.Model):
 
     hide_in_access_rights = fields.Boolean('Hide in access rights', default=False)
     alias = fields.Char('Alias')
+
 

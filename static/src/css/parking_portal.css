@@ -1,3 +1,6 @@
+/*.parking_portal_view_parking_portal_parking_tree td[data-field="parking_name"]{text-align:center;}*/
+
+/* Parkings tree view */
 .parking_portal_view_parking_portal_parking_tree th[data-id="name"]{width: 10%;}
 .parking_portal_view_parking_portal_parking_tree th[data-id="zone_id"]{width: 15%;}
 .parking_portal_view_parking_portal_parking_tree th[data-id="status"]{width: 10%;}
@@ -6,5 +9,9 @@
 .parking_portal_view_parking_portal_parking_tree th[data-id="last_ticket_amount"]{width: 10%;}
 .parking_portal_view_parking_portal_parking_tree th[data-id="today_tickets_amount"]{width: 15%;}
 
-/*.parking_portal_view_parking_portal_parking_tree td[data-field="parking_name"]{text-align:center;}*/
+/* Streets tree view */
+.parking_portal_view_parking_portal_street_tree th[data-id="code"]{width: 10%;}
+.parking_portal_view_parking_portal_street_tree th[data-id="name"]{width: 60%;}
+.parking_portal_view_parking_portal_street_tree th[data-id="start_numeration"]{width: 15%;}
+.parking_portal_view_parking_portal_street_tree th[data-id="end_numeration"]{width: 15%;}
 

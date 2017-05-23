@@ -30,9 +30,9 @@
     'data': [
         'security/parking_portal_security.xml',
         'security/ir.model.access.csv',
-        'views/resources.xml',
         'data/parking_module_data.xml',
         'data/parking_fixed_data.xml',
+        'views/resources.xml',
         'views/parking_view.xml',
         'views/parking_ticket_view.xml',
         'views/ticket_machine_view.xml',

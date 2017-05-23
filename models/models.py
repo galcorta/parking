@@ -109,8 +109,8 @@ class PriceHour(models.Model):
 
     #name = fields.Char(compute='_compute_name', string='Name')
     price_schedule_detail_id = fields.Many2one('parking.price.schedule.detail',
-                                            string="Price Schedule Detail", ondelete='restrict')
-    minutes_convertion = fields.Char('Minutes convertion', compute='_compute_minutes', required=True, store=True)
+                                            string="Price Schedule Detail", ondelete='cascade')
+    minutes_convertion = fields.Char('Minutes convertion', compute='_compute_minutes', store=True)
     label = fields.Char('Label', required=True, default='Hs')
     minutes = fields.Selection([
         (30, 'Media hora'),
@@ -181,11 +181,12 @@ class Street(models.Model):
 class Parking(geo_model.GeoModel):
     _name = 'parking.parking'
 
+    @api.one
     @api.depends('street_id', 'number')
-    def _get_parking_name(self):
-        self.parking_name = self.street_id.code + str(self.number).zfill(3)
+    def _get_name(self):
+        self.name = self.street_id.code + str(self.parking_number).zfill(3)
 
-    name = fields.Char('Parking name', store=True, compute='_get_parking_name')
+    name = fields.Char('Parking name', store=True, readonly=True, compute='_get_name')
     parking_number = fields.Integer('Parking number', unique=True, required=True)
     parking_type = fields.Selection([
         ('STANDARD', 'STANDARD'),
@@ -370,3 +371,14 @@ class SysSetting(models.Model):
     sys_value = fields.Char('Sys value')
     description = fields.Char('Description')
     active = fields.Boolean('Active')
+
+
+class ParkingUserDevice(models.Model):
+    _name = 'parking.user.device'
+
+    msisdn = fields.Char('Mobile phone')
+    imei = fields.Char('IMEI')
+    device_type = fields.Selection([
+        ('POS_MACHINE', 'POS MACHINE'),
+        ('MOBILE_PHONE', 'MOBILE PHONE'),
+    ], 'Device type', default='POS_MACHINE')
