@@ -30,11 +30,11 @@
             <field name="model">parking.ticket</field>
             <field name="view_mode">tree,form</field>
             <field name="arch" type="xml">
-                <tree string="Credit Entity">
+                <tree string="Parking tickets" class="parking_portal_view_parking_portal_parking_ticket_tree">
                     <field name="ticket_machine_id"/>
-                    <field name="ticket_type"/>
-                    <field name="start_time"/>
-                    <field name="end_time"/>
+                    <field name="create_date" widget="date"/>
+                    <field name="start_time_string"/>
+                    <field name="end_time_string"/>
                     <field name="parking_id"/>
                     <field name="status"/>
                 </tree>
@@ -76,6 +76,7 @@
             <field name="res_model">parking.ticket</field>
             <field name="view_type">tree</field>
             <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_groupby_status': 1}</field>
         </record>
 
         <menuitem action="action_parking_portal_parking_ticket_form"

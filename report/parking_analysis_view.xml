@@ -67,14 +67,13 @@
                             domain="[('create_date','&lt;=', (context_today() +
                             relativedelta(weeks=1,day=7, weekday=-1)).strftime('%Y-%m-%d')),
                             ('create_date','&gt;=',(context_today() - relativedelta(weeks=0, day=7, weekday=0)).strftime('%Y-%m-%d'))]"
-                            help="Current Week"
-                            context="{'group_by':'create_date'}"/>
+                            help="Current Week" />
                     <filter icon="terp-go-month" string="Month" name="month"
                              domain="[('create_date','&lt;=',(datetime.date.today()+relativedelta(day=31)).strftime('%Y-%m-%d')),
                              ('create_date','&gt;=',(datetime.date.today()-relativedelta(day=1)).strftime('%Y-%m-%d'))]" help="Current Month"/>
 
                     <group expand="1" string="Group By">
-                        <filter string="Zone" context="{'group_by':'zone_name'}" />
+                         <filter string="Zone" context="{'group_by':'zone_name'}" />
                     </group>
                 </search>
             </field>
@@ -98,7 +97,9 @@
        </record>
        <menuitem name="Parking Analysis" id="menu_report_parking_analysis_tree"
             groups="group_parking_admin"
-            parent="menu_parking_portal_reports" action="action_parking_analysis_graph" sequence="1"/>
+            parent="menu_parking_portal_reports"
+            action="action_parking_analysis_graph"
+            sequence="2"/>
 
     </data>
 </odoo>

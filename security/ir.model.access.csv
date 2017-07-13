@@ -6,3 +6,4 @@ access_parking_analysis_all,parking_analysis all,model_parking_analysis,,1,0,0,0
 access_parking_price_hour_all,parking_price_hour all,model_parking_price_hour,,1,0,0,0
 access_parking_zone_all,parking_zone all,model_parking_zone,,1,0,0,0
 access_parking_street_all,parking_street all,model_parking_street,,1,0,0,0
+access_parking_user_device_all,parking_user_device all,model_parking_user_device,,1,0,0,0

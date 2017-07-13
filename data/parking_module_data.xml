@@ -31,5 +31,10 @@
             <field name="alias">PARKING_MANAGER</field>
         </record>
 
+        <record model="res.groups" id="group_parking_ussd_police">
+            <field name="category_id" ref="module_category_parking_ussd_application"/>
+            <field name="alias">POLICE</field>
+        </record>
+
     </data>
 </odoo>

@@ -40,12 +40,14 @@
                             </button>
                         </div>
                         <group>
-                            <field name="name"/>
+                            <field name="name" invisible="1"/>
                             <field name="zone_id"/>
                             <field name="street_id"/>
                             <field name="parking_number"/>
                             <field name="next_street_id"/>
                             <field name="previous_street_id"/>
+                            <field name="latitude" invisible="1"/>
+                            <field name="longitude" invisible="1"/>
                         </group>
                         <notebook>
                             <page string="Information">
@@ -82,39 +84,14 @@
             </field>
         </record>
 
-        <record id="view_parking_portal_parking_tree1" model="ir.ui.view">
-            <field name="name">parking.portal.parking.tree1</field>
-            <field name="model">parking.parking</field>
-            <field name="view_mode">tree,form</field>
-            <field name="arch" type="xml">
-                <tree string="Parkings" create="false" delete="false" class="parking_portal_view_parking_portal_parking_tree">
-                    <field name="zone_id"/>
-                    <field name="name"/>
-                    <field name="status"/>
-                    <field name="last_ticket_start_time"/>
-                    <field name="last_ticket_end_time"/>
-                    <field name="last_ticket_amount"/>
-                    <field name="today_tickets_count"/>
-                    <field name="today_tickets_amount" sum="Total"/>
-                </tree>
-            </field>
-        </record>
 
         <record id="action_parking_portal_parking_form" model="ir.actions.act_window">
             <field name="name">Parkings</field>
             <field name="res_model">parking.parking</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,geoengine</field>
         </record>
 
-        <record id="action_parking_portal_parking_form1" model="ir.actions.act_window">
-            <field name="name">Parkings Status</field>
-            <field name="res_model">parking.parking</field>
-            <field name="view_type">form</field>
-            <field name="limit">15</field>
-            <field name="view_mode">tree,form,geoengine</field>
-            <field name="view_id" ref="view_parking_portal_parking_tree1"/>
-        </record>
 
         <!-- Search View for Parking -->
 		<record id="parking_portal_parking_search_view" model="ir.ui.view">
@@ -123,16 +100,14 @@
 			<field name="arch" type="xml">
 				<search string="Parking">
                     <field name="name"/>
+                    <field name="status"/>
+                    <group expand="0" string="Group By">
+						<filter name="groupby_status" string="Status" domain="[]" context="{'group_by':'status'}"
+							help="Group Tickets by machine"/>
+					</group>
 				</search>
 			</field>
 		</record>
-
-
-        <menuitem action="action_parking_portal_parking_form1"
-                  id="menu_action_parking_portal_parking_form1"
-                  parent="menu_parking_portal_entities"
-                  sequence="7"
-                  groups="group_parking_admin"/>
 
         <menuitem action="action_parking_portal_parking_form"
                   id="menu_action_parking_portal_parking_form"
