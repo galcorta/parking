@@ -63,7 +63,7 @@
 
         <record id="action_parking_portal_ticket_machine_form" model="ir.actions.act_window">
             <field name="name">Ticket machines</field>
-            <field name="res_model">ticket.machine</field>
+            <field name="res_model">parking.ticket.machine</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="parking_res_users_view_form">
+            <field name="name">parking.res.users.view.form</field>
+            <field name="model">res.users</field>
+            <field name='inherit_id' ref='base.view_users_form'/>
+            <field name='arch' type='xml'>
+                <label for="login" position="replace">
+                    <label for="login" class="oe_edit_only" string="Login name"/>
+                </label>
+
+                <field name="login" position="replace">
+                    <field name="login" placeholder="Por ejemplo: jperez"/>
+                </field>
+
+                <field name="company_id" position="replace"/>
+                <xpath expr="//div[@class='oe_title']/group" position="before">
+                    <label for="company_id" class="oe_edit_only" groups="base.group_multi_company,parking_portal.group_parking_admin"/>
+                    <h4>
+                        <field name="company_id" context="{'user_preference': 0}" groups="base.group_multi_company,parking_portal.group_parking_admin"/>
+                    </h4>
+                </xpath>
+
+                <xpath expr="//notebook/page[2]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//notebook/page[1]" position="inside">
+                    <group>
+                        <group>
+                            <field name="pin" password="True"/>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                </xpath>
+                <notebook position="inside">
+                    <page name="user_devices" string="Devices">
+                        <field name="user_device_ids" nolabel="1"/>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <record id="parking_view_users_tree" model="ir.ui.view">
+            <field name="name">parking.res.users.tree</field>
+            <field name="model">res.users</field>
+            <field name='inherit_id' ref='base.view_users_tree'/>
+            <field name="arch" type="xml">
+                <field name="lang" position="replace">
+                </field>
+                <field name="name" position="after">
+                    <field name="company_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="parking_view_users_form_simple_modif" model="ir.ui.view">
+            <field name="name">parking.res.users.preferences.form</field>
+            <field name="model">res.users</field>
+            <field name='inherit_id' ref='base.view_users_form_simple_modif'/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[2]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <!--Filter view-->
+        <record id="filter_parking_res_users_view" model="ir.ui.view">
+            <field name="name">parking.res.users.view.filter</field>
+            <field name="model">res.users</field>
+            <field name='inherit_id' ref='base.view_users_search'/>
+            <field name="arch" type="xml">
+                <field name="company_ids" position="after">
+                    <group expand="1" string="Group By">
+                        <filter string="Company" context="{'group_by':'company_id'}" />
+                    </group>
+                </field>
+            </field>
+        </record>
+
+        <record id="parking_view_groups_form" model="ir.ui.view">
+            <field name="name">parking.res.groups.form</field>
+            <field name="model">res.groups</field>
+            <field name='inherit_id' ref='base.view_groups_form'/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="hide_in_access_rights"/>
+                    <field name="alias"/>
+                </field>
+            </field>
+        </record>
+
+        <menuitem action="base.action_res_users"
+          id="parking_menu_action_res_users_form"
+          parent="menu_parking_portal_configuration"
+          sequence="5"
+          groups="group_parking_admin"/>
+
+    </data>
+</odoo>

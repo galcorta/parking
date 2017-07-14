@@ -19,13 +19,20 @@
     'version': '1.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'ussd_management'],
+    'depends': [
+        'base',
+        'l10n_py_toponyms',
+        'ussd_management',
+        'base_geoengine',
+    ],
 
     # always loaded
     'data': [
         'security/parking_portal_security.xml',
+        'security/ir.model.access.csv',
         'data/parking_module_data.xml',
         'data/parking_fixed_data.xml',
+        'views/resources.xml',
         'views/parking_view.xml',
         'views/parking_ticket_view.xml',
         'views/ticket_machine_view.xml',
@@ -33,8 +40,11 @@
         'views/price_schedule_detail_view.xml',
         'views/price_hour_view.xml',
         'views/zone_view.xml',
+        'views/street_view.xml',
+        'views/res_users_view.xml',
+        'views/parking_user_device_view.xml',
         'report/parking_analysis_view.xml',
-        'security/ir.model.access.csv',
+        'report/parking_status_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

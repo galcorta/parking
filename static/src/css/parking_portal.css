@@ -1,0 +1,33 @@
+/*.parking_portal_view_parking_portal_parking_tree td[data-field="parking_name"]{text-align:center;}*/
+
+/* Parkings tree view */
+.parking_portal_view_parking_portal_parking_tree th[data-id="name"]{width: 10%;}
+.parking_portal_view_parking_portal_parking_tree th[data-id="zone_id"]{width: 19%;}
+.parking_portal_view_parking_portal_parking_tree th[data-id="status"]{width: 8%;}
+.parking_portal_view_parking_portal_parking_tree th[data-id="last_ticket_start_time"]{width: 8%;}
+.parking_portal_view_parking_portal_parking_tree th[data-id="last_ticket_end_time"]{width: 8%;}
+.parking_portal_view_parking_portal_parking_tree th[data-id="last_ticket_date"]{width: 13%;}
+.parking_portal_view_parking_portal_parking_tree th[data-id="last_ticket_amount"]{width: 13%;}
+.parking_portal_view_parking_portal_parking_tree th[data-id="today_tickets_count"]{width: 11%;}
+.parking_portal_view_parking_portal_parking_tree th[data-id="today_tickets_amount"]{width: 10%;}
+
+
+/* Parking Status tree view */
+.parking_portal_view_parking_status_tree td[data-field="last_ticket_start_time"]{text-align: center;}
+.parking_portal_view_parking_status_tree td[data-field="last_ticket_end_time"]{text-align: center;}
+
+
+
+/* Streets tree view */
+.parking_portal_view_parking_portal_street_tree th[data-id="code"]{width: 10%;}
+.parking_portal_view_parking_portal_street_tree th[data-id="name"]{width: 60%;}
+.parking_portal_view_parking_portal_street_tree th[data-id="start_numeration"]{width: 15%;}
+.parking_portal_view_parking_portal_street_tree th[data-id="end_numeration"]{width: 15%;}
+
+/* Parking tickets tree view */
+.parking_portal_view_parking_portal_parking_ticket_tree th[data-id="ticket_machine_id"]{width: 15%;}
+.parking_portal_view_parking_portal_parking_ticket_tree th[data-id="ticket_type"]{width: 20%;}
+.parking_portal_view_parking_portal_parking_ticket_tree th[data-id="start_time"]{width: 10%;}
+.parking_portal_view_parking_portal_parking_ticket_tree th[data-id="end_time"]{width: 10%;}
+.parking_portal_view_parking_portal_parking_ticket_tree th[data-id="parking_id"]{width: 20%;}
+.parking_portal_view_parking_portal_parking_ticket_tree th[data-id="status"]{width: 25%;}

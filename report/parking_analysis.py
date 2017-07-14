@@ -41,7 +41,7 @@ class ParkingAnalysis(models.Model):
                     t.description,
                     t.source,
                     t.amount,
-                    t.parking_name,
+                    t.name,
                     t.parking_type,
                     t.zone_name
                 from
@@ -54,17 +54,17 @@ class ParkingAnalysis(models.Model):
                     pt.description,
                     pt.source,
                     ph.price as amount,
-                    p.parking_name,
+                    p.name,
                     p.parking_type,
                     z.name as zone_name
                     from parking_ticket pt
-                    join parking p on pt.parking = p.id
-                    join zone z on p.zone = z.id
-                    join ticket_machine tm on pt.ticket_machine = tm.id
-                    join price_hour ph on pt.price_hour = ph.id
-                    join price_schedule_detail psd on ph.price_schedule_detail = psd.id
-                    join payment_method pm on pt.payment_method = pm.id
-                    WHERE pt.active = 'true') t
+                    join parking_parking p on pt.parking_id = p.id
+                    join parking_zone z on p.zone_id = z.id
+                    join parking_ticket_machine tm on pt.ticket_machine_id = tm.id
+                    join parking_price_hour ph on pt.price_hour_id = ph.id
+                    join parking_price_schedule_detail psd on ph.price_schedule_detail_id = psd.id
+                    join parking_payment_method pm on pt.payment_method_id = pm.id
+                    WHERE pt.active = 'true' AND pt.status = 'APPROVED') t
                     right join generate_series((select min(create_date::date) from parking_ticket)::timestamp,
                                               (select max(create_date::date) from parking_ticket), '1 days') as s(a)
                                               on t.create_date::date = s.a)

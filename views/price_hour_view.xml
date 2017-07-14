@@ -4,15 +4,15 @@
 
         <!-- parking_portal.price.hour -->
         <record id="view_parking_portal_price_hour_form" model="ir.ui.view">
-            <field name="name">parking.portal.price.hour.form</field>
-            <field name="model">price.hour</field>
+            <field name="name">parking.portal.parking.price.hour.form</field>
+            <field name="model">parking.price.hour</field>
             <field name="arch" type="xml">
                 <form string="Price hour">
                   <sheet>
                     <group col="4">
                         <field name="minutes"/>
                         <field name="price"/>
-                        <field name="price_schedule_detail" />
+                        <field name="price_schedule_detail_id" />
                     </group>
                   </sheet>
                 </form>
@@ -20,8 +20,8 @@
         </record>
 
         <record id="view_parking_portal_price_hour_tree" model="ir.ui.view">
-            <field name="name">parking.portal.price.hour.tree</field>
-            <field name="model">price.hour</field>
+            <field name="name">parking.portal.parking.price.hour.tree</field>
+            <field name="model">parking.price.hour</field>
             <field name="view_mode">tree,form</field>
             <field name="arch" type="xml">
                 <tree string="Price hour" editable="bottom">
@@ -33,7 +33,7 @@
 
 <!--        <record id="action_parking_portal_price_hour_form" model="ir.actions.act_window">
             <field name="name">Price hour</field>
-            <field name="res_model">price.hour</field>
+            <field name="res_model">parking.price.hour</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>

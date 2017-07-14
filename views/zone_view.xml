@@ -4,15 +4,15 @@
 
         <!-- parking_portal.zone -->
         <record id="view_parking_portal_zone_form" model="ir.ui.view">
-            <field name="name">parking.portal.zone.form</field>
-            <field name="model">zone</field>
+            <field name="name">parking.portal.parking.zone.form</field>
+            <field name="model">parking.zone</field>
             <field name="arch" type="xml">
                 <form string="Zone">
                   <sheet>
                     <group col="4">
                         <field name="name"/>
-                        <field name="district"/>
-                        <field name="price_schedule"/>
+                        <field name="city_id"/>
+                        <field name="price_schedule_id"/>
                         <field name="reference"/>
                     </group>
                   </sheet>
@@ -21,8 +21,8 @@
         </record>
 
         <record id="view_parking_portal_zone_tree" model="ir.ui.view">
-            <field name="name">parking.portal.zone.tree</field>
-            <field name="model">zone</field>
+            <field name="name">parking.portal.parking.zone.tree</field>
+            <field name="model">parking.zone</field>
             <field name="view_mode">tree,form</field>
             <field name="arch" type="xml">
                 <tree string="Zone">
@@ -34,7 +34,7 @@
 
         <record id="action_parking_portal_zone_form" model="ir.actions.act_window">
             <field name="name">Zone</field>
-            <field name="res_model">zone</field>
+            <field name="res_model">parking.zone</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>
@@ -42,7 +42,7 @@
         <menuitem action="action_parking_portal_zone_form"
                   id="menu_action_parking_portal_zone_form"
                   parent="menu_parking_portal_configuration"
-                  sequence="2"
+                  sequence="1"
                   groups="group_parking_admin"/>
 
     </data>

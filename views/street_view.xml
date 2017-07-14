@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- parking_portal.street -->
+        <record id="view_parking_portal_street_form" model="ir.ui.view">
+            <field name="name">parking.portal.parking.street.form</field>
+            <field name="model">parking.street</field>
+            <field name="arch" type="xml">
+                <form string="Street">
+                    <sheet>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="start_numeration"/>
+                            <field name="end_numeration"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_parking_portal_street_tree" model="ir.ui.view">
+            <field name="name">parking.portal.parking.street.tree</field>
+            <field name="model">parking.street</field>
+            <field name="view_mode">tree,form</field>
+            <field name="arch" type="xml">
+                <tree string="Street" class="parking_portal_view_parking_portal_street_tree">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="start_numeration"/>
+                    <field name="end_numeration"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_parking_portal_street_form" model="ir.actions.act_window">
+            <field name="name">Streets</field>
+            <field name="res_model">parking.street</field>
+            <field name="view_type">form</field>
+            <field name="limit">15</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Search View for streets -->
+		<record id="parking_portal_street_search_view" model="ir.ui.view">
+			<field name="name">street.search</field>
+			<field name="model">parking.street</field>
+			<field name="arch" type="xml">
+				<search string="Street">
+                    <field name="name"/>
+                    <field name="code"/>
+				</search>
+			</field>
+		</record>
+
+        <menuitem action="action_parking_portal_street_form"
+                  id="menu_action_parking_portal_street_form"
+                  parent="menu_parking_portal_configuration"
+                  sequence="2"
+                  groups="group_parking_admin"/>
+
+        <!-- GeoEngine views -->
+        <!--<record id="ir_ui_view_streetview0" model="ir.ui.view">
+            <field name="name">Street view</field>
+            <field name="model">parking.street</field>
+            <field eval="16" name="priority"/>
+              <field name="arch" type="xml">
+                <geoengine>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="start_numeration"/>
+                    <field name="end_numeration"/>
+                </geoengine>
+              </field>
+        </record>
+
+        <record id="geoengine_vector_layer_parkingbasicpoint0" model="geoengine.vector.layer">
+          <field name="geo_field_id" ref="parking_portal.field_street_start_coordinate"/>
+          <field name="name">Street Multi Line</field>
+          <field eval="6" name="sequence"/>
+          <field name="view_id" ref="ir_ui_view_streetview0"/>
+          <field name="geo_repr">basic</field>
+          <field eval="1" name="nb_class"/>
+          <field name="begin_color">#FF680A</field>
+        </record>
+        <record id="geoengine_raster_layer_streetosm" model="geoengine.raster.layer">
+          <field name="raster_type">osm</field>
+          <field name="name">Street Open Street Map</field>
+          <field name="view_id" ref="ir_ui_view_streetview0"/>
+          <field eval="0" name="overlay"/>
+        </record>
+        <record id="geoengine_raster_layer_street_basic0" model="geoengine.raster.layer">
+          <field name="raster_type">d_wms</field>
+          <field name="name">basic</field>
+          <field name="url">vmap0.tiles.osgeo.org/wms/vmap0</field>
+          <field name="view_id" ref="ir_ui_view_streetview0"/>
+          <field eval="1" name="overlay"/>
+        </record>-->
+    </data>
+</odoo>

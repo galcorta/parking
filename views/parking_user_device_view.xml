@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="parking_parking_user_device_view_form">
+            <field name="name">parking.parking.user.device.view.form</field>
+            <field name="model">parking.user.device</field>
+            <field name='arch' type='xml'>
+                <form string="Device">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                                <field name="active" widget="boolean_button" options='{"terminology": "active"}'/>
+                            </button>
+                        </div>
+                        <group>
+                            <field name="msisdn"/>
+                            <field name="device_type"/>
+                            <field name="imei"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="parking_parking_user_device_view_tree" model="ir.ui.view">
+            <field name="name">parking.parking.user.device.tree</field>
+            <field name="model">parking.user.device</field>
+            <field name="arch" type="xml">
+                <tree string="Devices">
+                    <field name="msisdn"/>
+                    <field name="device_type"/>
+                    <field name="imei"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_parking_parking_user_device_form" model="ir.actions.act_window">
+            <field name="name">Devices</field>
+            <field name="res_model">parking.user.device</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem action="action_parking_parking_user_device_form"
+          id="menu_action_parking_parking_user_device_form"
+          parent="menu_parking_portal_configuration"
+          sequence="6"
+          groups="group_parking_admin"/>
+
+    </data>
+</odoo>
